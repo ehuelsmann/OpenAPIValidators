@@ -9,7 +9,10 @@ export enum ErrorCode {
 }
 
 export default class ValidationError extends Error {
-  constructor(public code: ErrorCode, message?: string) {
+  constructor(
+    public code: ErrorCode,
+    message?: string,
+  ) {
     super(message);
   }
 

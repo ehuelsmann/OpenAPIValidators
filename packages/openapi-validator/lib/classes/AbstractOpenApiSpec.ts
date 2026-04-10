@@ -1,4 +1,5 @@
 import OpenAPIResponseValidator from 'openapi-response-validator';
+import type { OpenAPIResponseValidatorError } from 'openapi-response-validator';
 import type { OpenAPIV2, OpenAPIV3, OpenAPIV3_1 } from 'openapi-types';
 import { getPathname } from '../utils/common.utils';
 import type { ActualRequest, ActualResponse } from './AbstractResponse';
@@ -138,7 +139,7 @@ export default abstract class OpenApiSpec {
     const validator = new OpenAPIResponseValidator({
       responses: expectedResponse,
       ...this.getComponentDefinitionsProperty(),
-    });
+    } as unknown as ConstructorParameters<typeof OpenAPIResponseValidator>[0]);
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const expectedResStatus = Object.keys(expectedResponse)[0]!;
@@ -173,10 +174,10 @@ export default abstract class OpenApiSpec {
     const validator = new OpenAPIResponseValidator({
       responses: mockExpectedResponse,
       ...this.getComponentDefinitionsProperty(),
-      errorTransformer: ({ path, message }) => ({
+      errorTransformer: ({ path, message }: OpenAPIResponseValidatorError) => ({
         message: `${path.replace('response', 'object')} ${message}`,
       }),
-    });
+    } as unknown as ConstructorParameters<typeof OpenAPIResponseValidator>[0]);
     const validationError = validator.validateResponse(
       mockResStatus,
       actualObject,
