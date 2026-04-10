@@ -1,11 +1,11 @@
 # Chai OpenAPI Response Validator
 
-[![downloads](https://img.shields.io/npm/dm/chai-openapi-response-validator)](https://www.npmjs.com/package/chai-openapi-response-validator)
-[![npm](https://img.shields.io/npm/v/chai-openapi-response-validator.svg)](https://www.npmjs.com/package/chai-openapi-response-validator)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 ![build status](https://github.com/openapi-library/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
 ![style](https://img.shields.io/badge/code%20style-airbnb-ff5a5f.svg)
 [![codecov](https://codecov.io/gh/openapi-library/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/openapi-library/OpenAPIValidators)
-[![included](https://badgen.net/npm/types/chai-openapi-response-validator)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/chai-openapi-response-validator/lib/index.ts)
+[![included](https://badgen.net/npm/types/@ehuelsmann%2Fchai-openapi-response-validator)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/chai-openapi-response-validator/lib/index.ts)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md)
 
 Use Chai to assert that HTTP responses satisfy an OpenAPI spec.
@@ -39,13 +39,13 @@ If you've come here to help contribute - thanks! Take a look at the [contributin
 [npm](http://npmjs.org)
 
 ```bash
-npm install --save-dev chai-openapi-response-validator
+npm install --save-dev @ehuelsmann/chai-openapi-response-validator
 ```
 
 [yarn](https://yarnpkg.com/)
 
 ```bash
-yarn add --dev chai-openapi-response-validator
+yarn add --dev @ehuelsmann/chai-openapi-response-validator
 ```
 
 ## Importing
@@ -53,14 +53,14 @@ yarn add --dev chai-openapi-response-validator
 ES6 / TypeScript
 
 ```typescript
-import chaiResponseValidator from 'chai-openapi-response-validator';
+import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
 ```
 
 CommonJS / JavaScript
 
 <!-- prettier-ignore -->
 ```javascript
-const chaiResponseValidator = require('chai-openapi-response-validator').default;
+const chaiResponseValidator = require('@ehuelsmann/chai-openapi-response-validator').default;
 ```
 
 ## Usage
@@ -75,7 +75,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 // Import this plugin
-import chaiResponseValidator from 'chai-openapi-response-validator';
+import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
 
 // Load an OpenAPI file (YAML or JSON) into this plugin
 chai.use(chaiResponseValidator('path/to/openapi.yml'));
@@ -189,7 +189,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 // Import this plugin and the function you want to test
-import chaiResponseValidator from 'chai-openapi-response-validator';
+import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
 import { functionToTest } from 'path/to/your/code';
 
 // Load an OpenAPI file (YAML or JSON) into this plugin
@@ -300,7 +300,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 // Import this plugin
-import chaiResponseValidator from 'chai-openapi-response-validator';
+import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
 
 // Get an object representing your OpenAPI spec
 const openApiSpec = {
@@ -354,7 +354,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 // Import this plugin and an HTTP client (e.g. axios)
-import chaiResponseValidator from 'chai-openapi-response-validator';
+import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
 import axios from 'axios';
 
 // Write your test (e.g. using Mocha)

@@ -18,13 +18,13 @@ These test plugins let you automatically test whether your server's behaviour an
 
 ### [jest-openapi](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/jest-openapi#readme)
 
-[![downloads](https://img.shields.io/npm/dm/jest-openapi)](https://www.npmjs.com/package/jest-openapi)
-[![npm](https://img.shields.io/npm/v/jest-openapi.svg)](https://www.npmjs.com/package/jest-openapi)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fjest-openapi)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fjest-openapi.svg)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 
 ### [Chai OpenAPI Response Validator](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme)
 
-[![downloads](https://img.shields.io/npm/dm/chai-openapi-response-validator)](https://www.npmjs.com/package/chai-openapi-response-validator)
-[![npm](https://img.shields.io/npm/v/chai-openapi-response-validator.svg)](https://www.npmjs.com/package/chai-openapi-response-validator)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 
 ## Installing from GitHub Packages (scoped packages)
 
