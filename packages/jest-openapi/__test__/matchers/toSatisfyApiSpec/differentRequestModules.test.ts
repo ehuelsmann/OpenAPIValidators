@@ -8,7 +8,7 @@ import { str } from '../../../../../commonTestResources/utils';
 import app, { port } from '../../../../../commonTestResources/exampleApp';
 import jestOpenAPI from '../../..';
 
-const appOrigin = `http://localhost:${port}`;
+const appOrigin = `http://127.0.0.1:${port}`;
 const pathToApiSpec = path.resolve(
   '../../commonTestResources/exampleOpenApiFiles/valid/openapi3.yml',
 );
@@ -122,8 +122,10 @@ describe('Parsing responses from different request modules', () => {
   });
 
   describe('axios', () => {
-    beforeAll(() => {
-      app.server = app.listen(port);
+    beforeAll(async () => {
+      await new Promise<void>((resolve) => {
+        app.server = app.listen(port, () => resolve());
+      });
     });
     afterAll(() => {
       app.server.close();
@@ -228,8 +230,10 @@ describe('Parsing responses from different request modules', () => {
   });
 
   describe('request-promise', () => {
-    beforeAll(() => {
-      app.server = app.listen(port);
+    beforeAll(async () => {
+      await new Promise<void>((resolve) => {
+        app.server = app.listen(port, () => resolve());
+      });
     });
     afterAll(() => {
       app.server.close();
