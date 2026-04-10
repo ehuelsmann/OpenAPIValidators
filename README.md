@@ -34,14 +34,15 @@ These packages are published to **GitHub Packages** (npm registry) under the sco
 - `@ehuelsmann/chai-openapi-response-validator`
 - `@ehuelsmann/openapi-validator`
 
-> **Note:** With scoped publishing, import from the scoped name, e.g. `import jestOpenAPI from '@ehuelsmann/jest-openapi'`.
+> **Note:** These are published as scoped packages, so import using the scoped name — for example:
+> - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
+> - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
 
 ### Prerequisites
 
-You must authenticate to GitHub Packages and tell your package manager to use `https://npm.pkg.github.com` for the `@ehuelsmann` scope.
+GitHub Packages requires authentication even for public packages. You need a GitHub Personal Access Token (PAT) with the **`read:packages`** scope.
 
-- For **public** packages, a GitHub Personal Access Token (PAT) with **`read:packages`** is sufficient.
-- For **private** packages, you also need appropriate repository access.
+You can create one at **GitHub → Settings → Developer settings → Personal access tokens**.
 
 ### npm
 
@@ -110,7 +111,7 @@ yarn add --dev @ehuelsmann/chai-openapi-response-validator
 
 ### Troubleshooting
 
-- **401/403 errors**: your token likely lacks `read:packages`, or you don't have access to the package/repo (for private packages).
+- **401/403 errors**: your token likely lacks `read:packages`, or you have not configured the scope registry mapping correctly.
 - **Package not found**: make sure the scope mapping is present (either `.npmrc` or Yarn config) and that you're installing the scoped name (e.g. `@ehuelsmann/jest-openapi`).
 
 ## Contributors ✨
