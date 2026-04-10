@@ -3,9 +3,7 @@
   "projectOwner": "openapi-library",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
@@ -15,108 +13,77 @@
       "name": "Richard Waller",
       "avatar_url": "https://avatars1.githubusercontent.com/u/18170169?v=4",
       "profile": "https://github.com/rwalle61",
-      "contributions": [
-        "maintenance",
-        "code",
-        "doc",
-        "review"
-      ]
+      "contributions": ["maintenance", "code", "doc", "review"]
     },
     {
       "login": "JonnySpruce",
       "name": "Jonny Spruce",
       "avatar_url": "https://avatars3.githubusercontent.com/u/30812276?v=4",
       "profile": "https://github.com/JonnySpruce",
-      "contributions": [
-        "code",
-        "doc",
-        "review"
-      ]
+      "contributions": ["code", "doc", "review"]
     },
     {
       "login": "AlexDobeck",
       "name": "Alex Dobeck",
       "avatar_url": "https://avatars2.githubusercontent.com/u/10519388?v=4",
       "profile": "https://github.com/AlexDobeck",
-      "contributions": [
-        "code",
-        "bug"
-      ]
+      "contributions": ["code", "bug"]
     },
     {
       "login": "BenGu3",
       "name": "Ben Guthrie",
       "avatar_url": "https://avatars2.githubusercontent.com/u/7105857?v=4",
       "profile": "https://github.com/BenGu3",
-      "contributions": [
-        "code",
-        "bug"
-      ]
+      "contributions": ["code", "bug"]
     },
     {
       "login": "mvegter",
       "name": "Martijn Vegter",
       "avatar_url": "https://avatars3.githubusercontent.com/u/25134477?v=4",
       "profile": "https://martijnvegter.com/",
-      "contributions": [
-        "code"
-      ]
+      "contributions": ["code"]
     },
     {
       "login": "ludeknovy",
       "name": "Ludek",
       "avatar_url": "https://avatars1.githubusercontent.com/u/13610612?v=4",
       "profile": "https://github.com/ludeknovy",
-      "contributions": [
-        "code",
-        "bug"
-      ]
+      "contributions": ["code", "bug"]
     },
     {
       "login": "tgiardina",
       "name": "Tommy Giardina",
       "avatar_url": "https://avatars1.githubusercontent.com/u/37459104?v=4",
       "profile": "https://github.com/tgiardina",
-      "contributions": [
-        "code",
-        "bug"
-      ]
+      "contributions": ["code", "bug"]
     },
     {
       "login": "Xotabu4",
       "name": "Oleksandr Khotemskyi",
       "avatar_url": "https://avatars3.githubusercontent.com/u/3033972?v=4",
       "profile": "https://xotabu4.github.io/",
-      "contributions": [
-        "doc"
-      ]
+      "contributions": ["doc"]
     },
     {
       "login": "amitkeinan9",
       "name": "Amit Keinan",
       "avatar_url": "https://avatars.githubusercontent.com/u/16577335?v=4",
       "profile": "https://github.com/amitkeinan9",
-      "contributions": [
-        "code"
-      ]
+      "contributions": ["code"]
     },
     {
       "login": "kristofferkarlsson93",
       "name": "Kristoffer Karlsson",
       "avatar_url": "https://avatars.githubusercontent.com/u/20490202?v=4",
       "profile": "http://karlssonkristoffer.com/",
-      "contributions": [
-        "doc"
-      ]
+      "contributions": ["doc"]
     },
     {
       "login": "DetachHead",
       "name": "DetachHead",
       "avatar_url": "https://avatars.githubusercontent.com/u/57028336?v=4",
       "profile": "https://github.com/DetachHead",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     }
   ],
   "contributorsPerLine": 7,
