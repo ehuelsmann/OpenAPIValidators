@@ -33,6 +33,9 @@
     "url": "https://github.com/openapi-library/OpenAPIValidators/issues"
   },
   "homepage": "https://github.com/openapi-library/OpenAPIValidators#openapi-validators",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],

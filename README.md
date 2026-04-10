@@ -26,34 +26,17 @@ These test plugins let you automatically test whether your server's behaviour an
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 
-## Installing from GitHub Packages (scoped packages)
+## Installing (scoped packages)
 
-These packages are published to **GitHub Packages** (npm registry) under the scope `@ehuelsmann`:
+These packages are published to the **public npm registry** under the scope `@ehuelsmann`:
 
 - `@ehuelsmann/jest-openapi`
 - `@ehuelsmann/chai-openapi-response-validator`
 - `@ehuelsmann/openapi-validator`
 
-> **Note:** These are published as scoped packages, so import using the scoped name — for example:
-> - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
-> - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
-
-### Prerequisites
-
-GitHub Packages requires authentication even for public packages. You need a GitHub Personal Access Token (PAT) with the **`read:packages`** scope.
-
-You can create one at **GitHub → Settings → Developer settings → Personal access tokens**.
+No authentication or token is required to install.
 
 ### npm
-
-1. Create or edit `~/.npmrc`:
-
-```ini
-@ehuelsmann:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-```
-
-2. Install:
 
 ```bash
 npm install --save-dev @ehuelsmann/jest-openapi
@@ -61,16 +44,7 @@ npm install --save-dev @ehuelsmann/jest-openapi
 npm install --save-dev @ehuelsmann/chai-openapi-response-validator
 ```
 
-### Yarn Classic (v1)
-
-1. Create or edit `~/.npmrc` (same as npm):
-
-```ini
-@ehuelsmann:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-```
-
-2. Install:
+### Yarn
 
 ```bash
 yarn add --dev @ehuelsmann/jest-openapi
@@ -78,41 +52,9 @@ yarn add --dev @ehuelsmann/jest-openapi
 yarn add --dev @ehuelsmann/chai-openapi-response-validator
 ```
 
-### Yarn Berry (v2+)
-
-**Option A: Use `.npmrc` (simplest)**
-
-Create or edit `~/.npmrc`:
-
-```ini
-@ehuelsmann:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-```
-
-**Option B: Use `.yarnrc.yml`**
-
-Add to your project's `.yarnrc.yml`:
-
-```yaml
-npmScopes:
-  ehuelsmann:
-    npmRegistryServer: "https://npm.pkg.github.com"
-    npmAlwaysAuth: true
-    npmAuthToken: "${GITHUB_TOKEN}"
-```
-
-Then set `GITHUB_TOKEN` in your environment and install:
-
-```bash
-yarn add --dev @ehuelsmann/jest-openapi
-# or
-yarn add --dev @ehuelsmann/chai-openapi-response-validator
-```
-
-### Troubleshooting
-
-- **401/403 errors**: your token likely lacks `read:packages`, or you have not configured the scope registry mapping correctly.
-- **Package not found**: make sure the scope mapping is present (either `.npmrc` or Yarn config) and that you're installing the scoped name (e.g. `@ehuelsmann/jest-openapi`).
+> **Note:** These are published as scoped packages, so import using the scoped name — for example:
+> - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
+> - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
 
 ## Contributors ✨
 

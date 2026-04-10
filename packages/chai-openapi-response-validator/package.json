@@ -38,6 +38,9 @@
     "url": "https://github.com/openapi-library/OpenAPIValidators/issues"
   },
   "homepage": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
