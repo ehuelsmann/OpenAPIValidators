@@ -10,8 +10,9 @@ extends:
 rules:
   jest/prefer-expect-assertions: off
   jest/no-disabled-tests: warn
-  jest/lowercase-name:
+  jest/prefer-lowercase-title:
     - error
     - ignore:
         - describe
   jest/no-hooks: off
+  jest/require-hook: off
