@@ -8,14 +8,31 @@ import { str } from '../../../../../commonTestResources/utils';
 import app, { port } from '../../../../../commonTestResources/exampleApp';
 import jestOpenAPI from '../../..';
 
-const appOrigin = `http://localhost:${port}`;
+const appOrigin = `http://127.0.0.1:${port}`;
 const pathToApiSpec = path.resolve(
   '../../commonTestResources/exampleOpenApiFiles/valid/openapi3.yml',
 );
 
 describe('Parsing responses from different request modules', () => {
-  beforeAll(() => {
+  beforeAll(async () => {
     jestOpenAPI(pathToApiSpec);
+    await new Promise<void>((resolve) => {
+      if (app.server && app.server.listening) {
+        resolve();
+        return;
+      }
+      app.server = app.listen(port, () => resolve());
+    });
+  });
+
+  afterAll(async () => {
+    await new Promise<void>((resolve, reject) => {
+      if (!app.server) {
+        resolve();
+        return;
+      }
+      app.server.close((err) => (err ? reject(err) : resolve()));
+    });
   });
 
   // These tests cover both supertest and chai-http, because they make requests the same way (using superagent)
@@ -122,12 +139,6 @@ describe('Parsing responses from different request modules', () => {
   });
 
   describe('axios', () => {
-    beforeAll(() => {
-      app.server = app.listen(port);
-    });
-    afterAll(() => {
-      app.server.close();
-    });
     describe('res header is application/json, and res.body is a string', () => {
       let res: AxiosResponse;
       beforeAll(async () => {
@@ -228,13 +239,6 @@ describe('Parsing responses from different request modules', () => {
   });
 
   describe('request-promise', () => {
-    beforeAll(() => {
-      app.server = app.listen(port);
-    });
-    afterAll(() => {
-      app.server.close();
-    });
-
     describe('json is set to true, res header is application/json, and res.body is a string', () => {
       let res: RequestPromiseResponse;
       beforeAll(async () => {
