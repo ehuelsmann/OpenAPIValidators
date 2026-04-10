@@ -8,8 +8,6 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "postinstall": "patch-package",
-    "patch-packages": "yarn patch-package openapi-response-validator",
     "clean": "yarn workspaces run clean && rimraf packages/.nyc_output && rimraf packages/coverage",
     "format": "prettier --write . --ignore-path .prettierignore",
     "lint": "yarn workspaces run lint",
@@ -37,8 +35,6 @@
     "express": "^5.2.1",
     "husky": "^4.3.0",
     "lerna": "^4.0.0",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
     "prettier": "^3.8.2",
     "rimraf": "^3.0.2",
     "typescript": "^5.0.0"
