@@ -36,7 +36,7 @@ jobs:
 
       - name: Assert tag matches package versions
         run: |
-          TAG="${GITHUB_REF_NAME#v}"
+          export TAG="${GITHUB_REF_NAME#v}"
           node -e "
             const fs = require('fs');
             const pkgs = [
@@ -52,8 +52,6 @@ jobs:
               }
             }
           "
-        env:
-          TAG: ${{ github.ref_name }}
 
       - name: Configure npm scope for GitHub Packages
         run: |
