@@ -52,6 +52,6 @@
     "@types/fs-extra": "^9.0.12",
     "@types/js-yaml": "^4.0.3",
     "@types/typeof": "^1.0.0",
-    "openapi-types": "^9.2.0"
+    "openapi-types": "^12.1.3"
   }
 }
