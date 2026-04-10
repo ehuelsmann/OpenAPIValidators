@@ -17,14 +17,20 @@ describe('Parsing responses from different request modules', () => {
   beforeAll(async () => {
     jestOpenAPI(pathToApiSpec);
     await new Promise<void>((resolve) => {
-      if (app.server && app.server.listening) return resolve();
+      if (app.server && app.server.listening) {
+        resolve();
+        return;
+      }
       app.server = app.listen(port, () => resolve());
     });
   });
 
   afterAll(async () => {
     await new Promise<void>((resolve, reject) => {
-      if (!app.server) return resolve();
+      if (!app.server) {
+        resolve();
+        return;
+      }
       app.server.close((err) => (err ? reject(err) : resolve()));
     });
   });
