@@ -1,4 +1,6 @@
-import OpenAPIResponseValidator from 'openapi-response-validator';
+import OpenAPIResponseValidator, {
+  type OpenAPIResponseValidatorArgs,
+} from 'openapi-response-validator';
 import type { OpenAPIV2, OpenAPIV3, OpenAPIV3_1 } from 'openapi-types';
 import { getPathname } from '../utils/common.utils';
 import type { ActualRequest, ActualResponse } from './AbstractResponse';
@@ -136,9 +138,9 @@ export default abstract class OpenApiSpec {
       throw error;
     }
     const validator = new OpenAPIResponseValidator({
-      responses: expectedResponse,
+      responses: expectedResponse as OpenAPIResponseValidatorArgs['responses'],
       ...this.getComponentDefinitionsProperty(),
-    });
+    } as OpenAPIResponseValidatorArgs);
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const expectedResStatus = Object.keys(expectedResponse)[0]!;
@@ -149,8 +151,8 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidBody,
-          validationError.errors
-            .map(({ path, message }) => `${path} ${message}`)
+          validationError.errors!
+            .map(({ path, message }: { path?: string; message: string }) => `${path} ${message}`)
             .join(', '),
         )
       : null;
@@ -171,12 +173,13 @@ export default abstract class OpenApiSpec {
     const mockResStatus = '200';
     const mockExpectedResponse = { [mockResStatus]: { schema } };
     const validator = new OpenAPIResponseValidator({
-      responses: mockExpectedResponse,
+      responses: mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
       ...this.getComponentDefinitionsProperty(),
-      errorTransformer: ({ path, message }) => ({
-        message: `${path.replace('response', 'object')} ${message}`,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      errorTransformer: ({ path, message }: { path?: string; message: string; errorCode: string }) => ({
+        message: `${path!.replace('response', 'object')} ${message}`,
       }),
-    });
+    } as OpenAPIResponseValidatorArgs);
     const validationError = validator.validateResponse(
       mockResStatus,
       actualObject,
@@ -184,7 +187,7 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidObject,
-          validationError.errors.map((error) => error.message).join(', '),
+          validationError.errors!.map((error: { message: string }) => error.message).join(', '),
         )
       : null;
   }
