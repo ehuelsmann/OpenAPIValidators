@@ -175,8 +175,9 @@ export default abstract class OpenApiSpec {
     const validator = new OpenAPIResponseValidator({
       responses: mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
       ...this.getComponentDefinitionsProperty(),
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       errorTransformer: ({ path, message }: { path?: string; message: string; errorCode: string }) => ({
-        message: `${(path ?? '').replace('response', 'object')} ${message}`,
+        message: `${path!.replace('response', 'object')} ${message}`,
       }),
     } as OpenAPIResponseValidatorArgs);
     const validationError = validator.validateResponse(
