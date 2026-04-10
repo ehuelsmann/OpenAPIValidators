@@ -18,13 +18,43 @@ These test plugins let you automatically test whether your server's behaviour an
 
 ### [jest-openapi](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/jest-openapi#readme)
 
-[![downloads](https://img.shields.io/npm/dm/jest-openapi)](https://www.npmjs.com/package/jest-openapi)
-[![npm](https://img.shields.io/npm/v/jest-openapi.svg)](https://www.npmjs.com/package/jest-openapi)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fjest-openapi)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fjest-openapi.svg)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 
 ### [Chai OpenAPI Response Validator](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme)
 
-[![downloads](https://img.shields.io/npm/dm/chai-openapi-response-validator)](https://www.npmjs.com/package/chai-openapi-response-validator)
-[![npm](https://img.shields.io/npm/v/chai-openapi-response-validator.svg)](https://www.npmjs.com/package/chai-openapi-response-validator)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
+
+## Installing (scoped packages)
+
+These packages are published to the **public npm registry** under the scope `@ehuelsmann`:
+
+- `@ehuelsmann/jest-openapi`
+- `@ehuelsmann/chai-openapi-response-validator`
+- `@ehuelsmann/openapi-validator`
+
+No authentication or token is required to install.
+
+### npm
+
+```bash
+npm install --save-dev @ehuelsmann/jest-openapi
+# or
+npm install --save-dev @ehuelsmann/chai-openapi-response-validator
+```
+
+### Yarn
+
+```bash
+yarn add --dev @ehuelsmann/jest-openapi
+# or
+yarn add --dev @ehuelsmann/chai-openapi-response-validator
+```
+
+> **Note:** These are published as scoped packages, so import using the scoped name — for example:
+> - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
+> - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
 
 ## Contributors ✨
 

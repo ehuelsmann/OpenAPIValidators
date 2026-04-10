@@ -1,11 +1,11 @@
-# jest-openapi
+# @ehuelsmann/jest-openapi
 
-[![downloads](https://img.shields.io/npm/dm/jest-openapi)](https://www.npmjs.com/package/jest-openapi)
-[![npm](https://img.shields.io/npm/v/jest-openapi.svg)](https://www.npmjs.com/package/jest-openapi)
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fjest-openapi)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fjest-openapi.svg)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 ![build status](https://github.com/openapi-library/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
 ![style](https://img.shields.io/badge/code%20style-airbnb-ff5a5f.svg)
 [![codecov](https://codecov.io/gh/openapi-library/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/openapi-library/OpenAPIValidators)
-[![included](https://badgen.net/npm/types/jest-openapi)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/jest-openapi/src/index.ts)
+[![included](https://badgen.net/npm/types/@ehuelsmann%2Fjest-openapi)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/jest-openapi/src/index.ts)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md)
 
 Additional Jest matchers for asserting that HTTP responses satisfy an OpenAPI spec.
@@ -39,13 +39,13 @@ If you've come here to help contribute - thanks! Take a look at the [contributin
 [npm](http://npmjs.org)
 
 ```bash
-npm install --save-dev jest-openapi
+npm install --save-dev @ehuelsmann/jest-openapi
 ```
 
 [yarn](https://yarnpkg.com/)
 
 ```bash
-yarn add --dev jest-openapi
+yarn add --dev @ehuelsmann/jest-openapi
 ```
 
 ## Importing
@@ -53,13 +53,13 @@ yarn add --dev jest-openapi
 ES6 / TypeScript
 
 ```typescript
-import jestOpenAPI from 'jest-openapi';
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
 ```
 
 CommonJS / JavaScript
 
 ```javascript
-const jestOpenAPI = require('jest-openapi').default;
+const jestOpenAPI = require('@ehuelsmann/jest-openapi').default;
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ const jestOpenAPI = require('jest-openapi').default;
 
 ```javascript
 // Import this plugin
-import jestOpenAPI from 'jest-openapi';
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
 
 // Load an OpenAPI file (YAML or JSON) into this plugin
 jestOpenAPI('path/to/openapi.yml');
@@ -180,7 +180,7 @@ The '200' response defined for endpoint 'GET /example/endpoint' in API spec: {
 
 ```javascript
 // Import this plugin and the function you want to test
-import jestOpenAPI from 'jest-openapi';
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
 import { functionToTest } from 'path/to/your/code';
 
 // Load an OpenAPI file (YAML or JSON) into this plugin
@@ -289,7 +289,7 @@ The 'ExampleSchemaObject' schema in API spec: {
 
 ```javascript
 // Import this plugin
-import jestOpenAPI from 'jest-openapi';
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
 
 // Get an object representing your OpenAPI spec
 const openApiSpec = {
@@ -339,7 +339,7 @@ describe('GET /example/endpoint', () => {
 
 ```javascript
 // Import this plugin and an HTTP client (e.g. axios)
-import jestOpenAPI from 'jest-openapi';
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
 import axios from 'axios';
 
 // Write your test

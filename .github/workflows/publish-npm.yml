@@ -1,0 +1,70 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies (workspaces)
+        run: yarn install --frozen-lockfile
+
+      - name: Build all packages
+        run: yarn build
+
+      - name: Assert tag matches package versions
+        run: |
+          export TAG="${GITHUB_REF_NAME#v}"
+          node -e "
+            const fs = require('fs');
+            const pkgs = [
+              'packages/openapi-validator/package.json',
+              'packages/jest-openapi/package.json',
+              'packages/chai-openapi-response-validator/package.json',
+            ];
+            for (const p of pkgs) {
+              const v = JSON.parse(fs.readFileSync(p, 'utf8')).version;
+              if (v !== process.env.TAG) {
+                console.error(p + ' version ' + v + ' does not match tag ' + process.env.TAG);
+                process.exit(1);
+              }
+            }
+          "
+
+      - name: Publish @${{ github.repository_owner }}/openapi-validator
+        working-directory: packages/openapi-validator
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @${{ github.repository_owner }}/jest-openapi
+        working-directory: packages/jest-openapi
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @${{ github.repository_owner }}/chai-openapi-response-validator
+        working-directory: packages/chai-openapi-response-validator
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
