@@ -1,6 +1,6 @@
 import chai from 'chai';
 import path from 'path';
-import chaiHttp from 'chai-http';
+import chaiHttp, { request } from 'chai-http';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 import requestPromise from 'request-promise';
@@ -27,8 +27,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res header is application/json, and res.body is a string', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai
-          .request(app)
+        res = await request.execute(app)
           .get('/header/application/json/and/responseBody/string');
       });
       it('passes', () => {
@@ -48,8 +47,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res header is application/json, and res.body is {}', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai
-          .request(app)
+        res = await request.execute(app)
           .get('/header/application/json/and/responseBody/emptyObject');
       });
       it('passes', () => {
@@ -69,8 +67,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res header is application/json, and res.body is a boolean (false)', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai
-          .request(app)
+        res = await request.execute(app)
           .get('/header/application/json/and/responseBody/boolean');
       });
       it('passes', () => {
@@ -90,8 +87,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res header is application/json, and res.body is a null', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai
-          .request(app)
+        res = await request.execute(app)
           .get('/header/application/json/and/responseBody/nullable');
       });
       it('passes', () => {
@@ -111,7 +107,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res header is text/html, res.body is {}, and res.text is a string', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai.request(app).get('/header/text/html');
+        res = await request.execute(app).get('/header/text/html');
       });
       it('passes', () => {
         expect(res).to.satisfyApiSpec;
@@ -131,8 +127,7 @@ describe('Parsing responses from different request modules', () => {
     describe('res has no content-type header, res.body is {}, and res.text is empty string', () => {
       let res: ChaiHttp.Response;
       before(async () => {
-        res = await chai
-          .request(app)
+        res = await request.execute(app)
           .get('/no/content-type/header/and/no/response/body');
       });
       it('passes', () => {
