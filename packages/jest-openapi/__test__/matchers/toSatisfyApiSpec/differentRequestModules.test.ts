@@ -14,11 +14,8 @@ const pathToApiSpec = path.resolve(
 );
 
 describe('Parsing responses from different request modules', () => {
-  beforeAll(() => {
-    jestOpenAPI(pathToApiSpec);
-  });
-
   beforeAll(async () => {
+    jestOpenAPI(pathToApiSpec);
     await new Promise<void>((resolve) => {
       if (app.server && app.server.listening) return resolve();
       app.server = app.listen(port, () => resolve());
