@@ -1,4 +1,4 @@
-import { makeApiSpec, OpenAPISpecObject } from 'openapi-validator';
+import { makeApiSpec, OpenAPISpecObject } from '@ehuelsmann/openapi-validator';
 import toSatisfyApiSpec from './matchers/toSatisfyApiSpec';
 import toSatisfySchemaInApiSpec from './matchers/toSatisfySchemaInApiSpec';
 

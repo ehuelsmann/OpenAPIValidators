@@ -13,7 +13,7 @@ import {
   OpenApiSpec,
   RawResponse,
   ValidationError,
-} from 'openapi-validator';
+} from '@ehuelsmann/openapi-validator';
 import { joinWithNewLines, stringify } from '../utils';
 
 export default function (
