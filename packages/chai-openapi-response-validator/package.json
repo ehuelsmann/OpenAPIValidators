@@ -7,15 +7,16 @@
   "scripts": {
     "clean": "rimraf dist",
     "clean:openapi-validator": "cd ../openapi-validator && yarn clean",
+    "build:openapi-validator": "cd ../openapi-validator && yarn build",
     "format": "prettier --write ../../ --ignore-path ../../.prettierignore",
     "lint": "tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
     "build": "tsc",
     "test": "ts-mocha --extension ts --recursive",
     "test:watch": "yarn test --watch",
-    "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
+    "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
     "test:coverage:browse": "yarn test:coverage; open ../coverage/lcov-report/index.html",
-    "test:ci": "yarn build && yarn format && yarn lint && yarn test:coverage",
+    "test:ci": "yarn format && yarn lint && yarn test:coverage",
     "prepack": "yarn build"
   },
   "repository": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator",
