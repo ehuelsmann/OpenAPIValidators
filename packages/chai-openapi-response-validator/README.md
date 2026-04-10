@@ -219,7 +219,7 @@ paths:
           description: Response body should be an ExampleSchemaObject
           content:
             application/json:
-              schema: 
+              schema:
                 $ref: '#/components/schemas/ExampleSchemaObject'
 components:
   schemas:

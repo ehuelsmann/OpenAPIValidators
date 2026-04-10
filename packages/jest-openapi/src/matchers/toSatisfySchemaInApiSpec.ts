@@ -2,6 +2,7 @@ import {
   EXPECTED_COLOR,
   matcherErrorMessage,
   matcherHint,
+  MatcherHintOptions,
   printExpected,
   printWithType,
   RECEIVED_COLOR,
@@ -15,11 +16,11 @@ export default function (
   schemaName: string,
   openApiSpec: OpenApiSpec,
 ): jest.CustomMatcherResult {
-  const matcherHintOptions = {
+  const matcherHintOptions: MatcherHintOptions = {
     comment:
       "Matches 'received' to a schema defined in your API spec, then validates 'received' against it",
-    isNot: this.isNot,
-    promise: this.promise,
+    ...(this.isNot !== undefined && { isNot: this.isNot }),
+    ...(this.promise !== undefined && { promise: this.promise }),
   };
   const hint = matcherHint(
     'toSatisfySchemaInApiSpec',
