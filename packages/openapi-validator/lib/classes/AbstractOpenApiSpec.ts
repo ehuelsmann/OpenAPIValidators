@@ -151,8 +151,11 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidBody,
-          validationError.errors!
-            .map(({ path, message }: { path?: string; message: string }) => `${path} ${message}`)
+          validationError
+            .errors!.map(
+              ({ path, message }: { path?: string; message: string }) =>
+                `${path} ${message}`,
+            )
             .join(', '),
         )
       : null;
@@ -173,10 +176,18 @@ export default abstract class OpenApiSpec {
     const mockResStatus = '200';
     const mockExpectedResponse = { [mockResStatus]: { schema } };
     const validator = new OpenAPIResponseValidator({
-      responses: mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
+      responses:
+        mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
       ...this.getComponentDefinitionsProperty(),
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      errorTransformer: ({ path, message }: { path?: string; message: string; errorCode: string }) => ({
+      errorTransformer: ({
+        path,
+        message,
+      }: {
+        path?: string;
+        message: string;
+        errorCode: string;
+      }) => ({
         message: `${path!.replace('response', 'object')} ${message}`,
       }),
     } as OpenAPIResponseValidatorArgs);
@@ -187,7 +198,9 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidObject,
-          validationError.errors!.map((error: { message: string }) => error.message).join(', '),
+          validationError
+            .errors!.map((error: { message: string }) => error.message)
+            .join(', '),
         )
       : null;
   }

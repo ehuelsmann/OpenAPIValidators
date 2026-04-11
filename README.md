@@ -53,6 +53,7 @@ yarn add --dev @ehuelsmann/chai-openapi-response-validator
 ```
 
 > **Note:** These are published as scoped packages, so import using the scoped name — for example:
+>
 > - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
 > - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
 
@@ -65,7 +66,8 @@ import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator';
 
 // CommonJS
 const jestOpenAPI = require('@ehuelsmann/jest-openapi').default;
-const chaiOpenAPI = require('@ehuelsmann/chai-openapi-response-validator').default;
+const chaiOpenAPI =
+  require('@ehuelsmann/chai-openapi-response-validator').default;
 ```
 
 ## Contributors ✨
