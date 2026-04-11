@@ -5,6 +5,9 @@ const config: Config = {
   testEnvironment: 'node',
   rootDir: '..',
   roots: ['<rootDir>/jest-openapi', '<rootDir>/openapi-validator'],
+  moduleNameMapper: {
+    '^@ehuelsmann/openapi-validator$': '<rootDir>/openapi-validator/index.ts',
+  },
   collectCoverageFrom: [
     '<rootDir>/jest-openapi/src/**/*',
     '<rootDir>/openapi-validator/lib/**/*',
