@@ -415,7 +415,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/chai-openapi-response-validator@workspace:packages/chai-openapi-response-validator"
   dependencies:
-    "@ehuelsmann/openapi-validator": "npm:^0.16.0"
+    "@ehuelsmann/openapi-validator": "npm:^0.16.1"
     "@types/chai": "npm:^4.2.15"
     "@types/mocha": "npm:^10.0.10"
     "@types/supertest": "npm:^7.2.0"
@@ -441,7 +441,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/jest-openapi@workspace:packages/jest-openapi"
   dependencies:
-    "@ehuelsmann/openapi-validator": "npm:^0.16.0"
+    "@ehuelsmann/openapi-validator": "npm:^0.16.1"
     "@types/jest": "npm:^30.0.0"
     "@types/supertest": "npm:^7.2.0"
     axios: "npm:^1.15.0"
@@ -458,7 +458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ehuelsmann/openapi-validator@npm:^0.16.0, @ehuelsmann/openapi-validator@workspace:packages/openapi-validator":
+"@ehuelsmann/openapi-validator@npm:^0.16.1, @ehuelsmann/openapi-validator@workspace:packages/openapi-validator":
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/openapi-validator@workspace:packages/openapi-validator"
   dependencies:

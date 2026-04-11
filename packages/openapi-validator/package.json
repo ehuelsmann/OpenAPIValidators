@@ -1,6 +1,6 @@
 {
   "name": "@ehuelsmann/openapi-validator",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "description": "Common code for jest-openapi and Chai OpenAPI Response Validator",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -27,7 +27,11 @@
     "test:ci": "echo",
     "prepack": "yarn build"
   },
-  "repository": "https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/openapi-validator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehuelsmann/OpenAPIValidators.git#master",
+    "directory": "packages/openapi-validator"
+  },
   "author": "OpenApiChai <openapichai@gmail.com>",
   "contributors": [
     "rwalle61 <richard.lh.waller@gmail.com>",
