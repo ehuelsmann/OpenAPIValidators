@@ -56,6 +56,18 @@ yarn add --dev @ehuelsmann/chai-openapi-response-validator
 > - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
 > - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
 
+Both packages ship as **ESM-first** (preferred) with a **CommonJS** fallback, supporting:
+
+```js
+// ESM / TypeScript
+import jestOpenAPI from '@ehuelsmann/jest-openapi';
+import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator';
+
+// CommonJS
+const jestOpenAPI = require('@ehuelsmann/jest-openapi').default;
+const chaiOpenAPI = require('@ehuelsmann/chai-openapi-response-validator').default;
+```
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

@@ -2,8 +2,21 @@
   "name": "@ehuelsmann/chai-openapi-response-validator",
   "version": "0.15.0",
   "description": "Use Chai to assert that HTTP responses satisfy an OpenAPI spec",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "scripts": {
     "clean": "rimraf dist",
     "clean:openapi-validator": "cd ../openapi-validator && yarn clean",
@@ -11,7 +24,7 @@
     "format": "prettier --write ../../ --ignore-path ../../.prettierignore",
     "lint": "tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "tsc",
+    "build": "tsup",
     "test": "ts-mocha --extension ts --recursive",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
@@ -64,7 +77,8 @@
     "request-promise": "^4.2.6",
     "rimraf": "^3.0.2",
     "supertest": "^7.2.2",
-    "ts-mocha": "^8.0.0"
+    "ts-mocha": "^8.0.0",
+    "tsup": "^8.5.1"
   },
   "dependencies": {
     "@ehuelsmann/openapi-validator": "^0.15.0"
