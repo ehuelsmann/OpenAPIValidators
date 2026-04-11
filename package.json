@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "clean": "yarn workspaces run clean && rimraf packages/.nyc_output && rimraf packages/coverage",

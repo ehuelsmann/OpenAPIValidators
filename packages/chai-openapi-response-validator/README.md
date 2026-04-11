@@ -50,7 +50,9 @@ yarn add --dev @ehuelsmann/chai-openapi-response-validator
 
 ## Importing
 
-ES6 / TypeScript
+This package ships with both **ESM** (preferred) and **CommonJS** builds, so it works in any environment.
+
+ESM / TypeScript
 
 ```typescript
 import chaiResponseValidator from '@ehuelsmann/chai-openapi-response-validator';
