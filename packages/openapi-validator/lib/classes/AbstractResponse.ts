@@ -1,12 +1,10 @@
 import { stringify } from '../utils/common.utils';
 import type { RawAxiosResponse } from './AxiosResponse';
-import type { RawRequestPromiseResponse } from './RequestPromiseResponse';
 import type { RawSuperAgentResponse } from './SuperAgentResponse';
 
 export type RawResponse =
   | RawAxiosResponse
-  | RawSuperAgentResponse
-  | RawRequestPromiseResponse;
+  | RawSuperAgentResponse;
 
 export default abstract class AbstractResponse {
   declare public status: number;
