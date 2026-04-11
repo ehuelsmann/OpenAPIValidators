@@ -62,6 +62,13 @@ git checkout -b <topic-branch-name>
 
 ### 4. Test that your code works
 
+Before running any commands, ensure you have [Corepack](https://yarnpkg.com/corepack) enabled so the pinned Yarn version is used automatically:
+
+```bash
+corepack enable
+yarn install
+```
+
 To test changes to a particular package, you can run these from within the `package/<packageName>` dir (e.g. `package/jest-openapi`):
 
 ```bash
