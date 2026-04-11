@@ -32,7 +32,11 @@
     "test:ci": "yarn format && yarn lint && yarn test:coverage",
     "prepack": "yarn build"
   },
-  "repository": "https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehuelsmann/OpenAPIValidators.git#master",
+    "directory": "packages/chai-openapi-response-validator"
+  },
   "author": "OpenApiChai <openapichai@gmail.com>",
   "contributors": [
     "Jonny Spruce <jspruce94@gmail.com>",
