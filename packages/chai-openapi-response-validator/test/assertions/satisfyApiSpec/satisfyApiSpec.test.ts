@@ -35,6 +35,13 @@ openApiSpecs.forEach((spec) => {
         status: 204,
         body: "must have a 'path' property",
       };
+      const unsupportedRes = {
+        req: {
+          method: 'GET',
+          path: '/responseBody/string',
+        },
+        body: 'valid body (string)',
+      };
 
       it('fails', () => {
         const assertion = () => expect(res).to.satisfyApiSpec;
@@ -44,6 +51,13 @@ openApiSpecs.forEach((spec) => {
       it('fails when using .not', () => {
         const assertion = () => expect(res).to.not.satisfyApiSpec;
         expect(assertion).to.throw(TypeError);
+      });
+
+      it('fails for unsupported response object shape', () => {
+        const assertion = () => expect(unsupportedRes).to.satisfyApiSpec;
+        expect(assertion).to.throw(
+          'Unsupported response object: expected axios, supertest, superagent, or chai-http response shape.',
+        );
       });
     });
 
