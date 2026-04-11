@@ -1,8 +1,4 @@
-import type {
-  OpenApiSpec,
-  Schema,
-  ValidationError,
-} from '@ehuelsmann/openapi-validator';
+import type { OpenApiSpec, Schema, ValidationError } from '@ehuelsmann/openapi-validator';
 import { stringify, joinWithNewLines } from '../utils';
 
 export default function (
