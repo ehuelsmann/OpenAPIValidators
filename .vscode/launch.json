@@ -9,11 +9,15 @@
       "type": "node",
       "request": "launch",
       "name": "Test chai-openapi-response-validator (Mocha)",
-      "program": "${workspaceFolder}/node_modules/ts-mocha/bin/ts-mocha",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/mocha.js",
       "args": [
         "--timeout",
         "999999", // timeout length. Required since while debugging we may pause for longer than Mocha's test timeout
         "--colors",
+        "--require",
+        "ts-node/register",
+        "--extension",
+        "ts",
         "${workspaceFolder}/packages/chai-openapi-response-validator/test",
         "--recursive",
         "--exit",

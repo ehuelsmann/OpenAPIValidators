@@ -25,7 +25,7 @@
     "lint": "tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
     "build": "tsup",
-    "test": "ts-mocha --extension ts --recursive",
+    "test": "mocha --require ts-node/register --extension ts --recursive",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
     "test:coverage:browse": "yarn test:coverage; open ../coverage/lcov-report/index.html",
@@ -59,7 +59,7 @@
   ],
   "devDependencies": {
     "@types/chai": "^4.2.15",
-    "@types/mocha": "^8.2.1",
+    "@types/mocha": "^10.0.10",
     "@types/request-promise": "^4.1.48",
     "@types/supertest": "^7.2.0",
     "axios": "^1.15.0",
@@ -71,13 +71,13 @@
     "eslint-plugin-mocha": "^8.0.0",
     "express": "^5.2.1",
     "fs-extra": "^9.0.1",
-    "mocha": "^8.2.0",
+    "mocha": "^11.7.4",
     "nyc": "15.1.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "rimraf": "^3.0.2",
     "supertest": "^7.2.2",
-    "ts-mocha": "^8.0.0",
+    "ts-node": "^10.9.2",
     "tsup": "^8.5.1"
   },
   "dependencies": {
