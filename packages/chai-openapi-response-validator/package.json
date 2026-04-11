@@ -32,7 +32,7 @@
     "test:ci": "yarn format && yarn lint && yarn test:coverage",
     "prepack": "yarn build"
   },
-  "repository": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator",
+  "repository": "https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator",
   "author": "OpenApiChai <openapichai@gmail.com>",
   "contributors": [
     "Jonny Spruce <jspruce94@gmail.com>",
@@ -48,9 +48,9 @@
     "validate"
   ],
   "bugs": {
-    "url": "https://github.com/openapi-library/OpenAPIValidators/issues"
+    "url": "https://github.com/ehuelsmann/OpenAPIValidators/issues"
   },
-  "homepage": "https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme",
+  "homepage": "https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme",
   "publishConfig": {
     "access": "public"
   },

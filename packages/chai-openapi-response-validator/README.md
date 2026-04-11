@@ -4,13 +4,15 @@
 
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
-![build status](https://github.com/openapi-library/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
+![build status](https://github.com/ehuelsmann/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
 ![style](https://img.shields.io/badge/code%20style-airbnb-ff5a5f.svg)
-[![codecov](https://codecov.io/gh/openapi-library/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/openapi-library/OpenAPIValidators)
-[![included](https://badgen.net/npm/types/@ehuelsmann%2Fchai-openapi-response-validator)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/chai-openapi-response-validator/lib/index.ts)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md)
+[![codecov](https://codecov.io/gh/ehuelsmann/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/ehuelsmann/OpenAPIValidators)
+[![included](https://badgen.net/npm/types/@ehuelsmann%2Fchai-openapi-response-validator)](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/packages/chai-openapi-response-validator/lib/index.ts)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/CONTRIBUTING.md)
 
 Use Chai to assert that HTTP responses satisfy an OpenAPI spec.
+
+**Note** This project is a fork from the [openapi-library](https://github.com/openapi-library) project because that project is not maintained at the moment. This project contains updates and security fixes, but ideally will be merged back into that project, as soon as it's maintained again.
 
 ## Problem 😕
 
@@ -34,7 +36,7 @@ Features:
 
 ## Contributing ✨
 
-If you've come here to help contribute - thanks! Take a look at the [contributing](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md) docs to get started.
+If you've come here to help contribute - thanks! Take a look at the [contributing](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/CONTRIBUTING.md) docs to get started.
 
 ## Installation
 
