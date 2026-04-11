@@ -1,5 +1,7 @@
 # @ehuelsmann/jest-openapi
 
+> **Notice:** Support for responses from [`request`](https://github.com/request/request#deprecated) and [`request-promise`](https://github.com/request/request-promise#deprecated) has been removed because both upstream projects are deprecated.
+
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fjest-openapi)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fjest-openapi.svg)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 ![build status](https://github.com/openapi-library/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
@@ -27,7 +29,7 @@ Features:
 - Supports OpenAPI specs in YAML and JSON formats
 - Supports `$ref` in response definitions (i.e. `$ref: '#/definitions/ComponentType/ComponentName'`)
 - Informs you if your OpenAPI spec is invalid
-- Supports responses from `axios`, `request-promise`, `supertest`, `superagent`, and `chai-http`
+- Supports responses from `axios`, `supertest`, `superagent`, and `chai-http`
 - Use in [Jest](#usage), or use our [sister package](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme) for Mocha and other test runners that support Chai
 
 ## Contributing ✨

@@ -60,7 +60,6 @@
   "devDependencies": {
     "@types/chai": "^4.2.15",
     "@types/mocha": "^10.0.10",
-    "@types/request-promise": "^4.1.48",
     "@types/supertest": "^7.2.0",
     "axios": "^1.15.0",
     "chai": "^6.2.2",
@@ -73,8 +72,6 @@
     "fs-extra": "^9.0.1",
     "mocha": "^11.7.4",
     "nyc": "15.1.0",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6",
     "rimraf": "^3.0.2",
     "supertest": "^7.2.2",
     "ts-node": "^10.9.2",
