@@ -4,13 +4,15 @@
 
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fjest-openapi)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fjest-openapi.svg)](https://www.npmjs.com/package/@ehuelsmann/jest-openapi)
-![build status](https://github.com/openapi-library/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
+![build status](https://github.com/ehuelsmann/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
 ![style](https://img.shields.io/badge/code%20style-airbnb-ff5a5f.svg)
-[![codecov](https://codecov.io/gh/openapi-library/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/openapi-library/OpenAPIValidators)
-[![included](https://badgen.net/npm/types/@ehuelsmann%2Fjest-openapi)](https://github.com/openapi-library/OpenAPIValidators/blob/master/packages/jest-openapi/src/index.ts)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md)
+[![codecov](https://codecov.io/gh/ehuelsmann/OpenAPIValidators/branch/master/graph/badge.svg)](https://codecov.io/gh/ehuelsmann/OpenAPIValidators)
+[![included](https://badgen.net/npm/types/@ehuelsmann%2Fjest-openapi)](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/packages/jest-openapi/src/index.ts)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/CONTRIBUTING.md)
 
 Additional Jest matchers for asserting that HTTP responses satisfy an OpenAPI spec.
+
+**Note** This project is a fork from the [openapi-library](https://github.com/openapi-library) project because that project is not maintained at the moment. This project contains updates and security fixes, but ideally will be merged back into that project, as soon as it's maintained again.
 
 ## Problem 😕
 
@@ -30,11 +32,11 @@ Features:
 - Supports `$ref` in response definitions (i.e. `$ref: '#/definitions/ComponentType/ComponentName'`)
 - Informs you if your OpenAPI spec is invalid
 - Supports responses from `axios`, `supertest`, `superagent`, and `chai-http`
-- Use in [Jest](#usage), or use our [sister package](https://github.com/openapi-library/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme) for Mocha and other test runners that support Chai
+- Use in [Jest](#usage), or use our [sister package](https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/chai-openapi-response-validator#readme) for Mocha and other test runners that support Chai
 
 ## Contributing ✨
 
-If you've come here to help contribute - thanks! Take a look at the [contributing](https://github.com/openapi-library/OpenAPIValidators/blob/master/CONTRIBUTING.md) docs to get started.
+If you've come here to help contribute - thanks! Take a look at the [contributing](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/CONTRIBUTING.md) docs to get started.
 
 ## Installation
 
