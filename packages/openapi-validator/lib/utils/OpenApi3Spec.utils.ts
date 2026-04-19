@@ -88,7 +88,7 @@ export const getMatchingServerUrlsAndServerBasePaths = (
     }))
     .filter(({ possibleBasePaths }) => possibleBasePaths.some(matchesPathname))
     .map(({ templatedUrl, possibleBasePaths }) => {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+       
       const matchingBasePath = possibleBasePaths.find(matchesPathname)!;
       return {
         concreteUrl: templatedUrl.replace(

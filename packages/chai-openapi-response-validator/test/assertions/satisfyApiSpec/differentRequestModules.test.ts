@@ -4,8 +4,8 @@ import chaiHttp, { request } from 'chai-http';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 
-import { str } from '../../../../../commonTestResources/utils';
-import app, { port } from '../../../../../commonTestResources/exampleApp';
+import { str } from "openapi-validators/commonTestResources/utils";
+import app, { port } from "openapi-validators/commonTestResources/exampleApp";
 import chaiResponseValidator from '../../..';
 
 const appOrigin = `http://localhost:${port}`;

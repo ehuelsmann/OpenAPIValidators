@@ -2,8 +2,8 @@ import path from 'path';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 
-import { str } from '../../../../../commonTestResources/utils';
-import app, { port } from '../../../../../commonTestResources/exampleApp';
+import { str } from "openapi-validators/commonTestResources/utils";
+import app, { port } from "openapi-validators/commonTestResources/exampleApp";
 import jestOpenAPI from '../../..';
 
 const appOrigin = `http://127.0.0.1:${port}`;
