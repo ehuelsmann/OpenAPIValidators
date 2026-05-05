@@ -1,12 +1,25 @@
 import fs from 'fs-extra';
 import yaml from 'js-yaml';
-import OpenAPISchemaValidator from 'openapi-schema-validator';
+import OpenAPISchemaValidatorModule from 'openapi-schema-validator';
 import type { OpenAPI, OpenAPIV2, OpenAPIV3 } from 'openapi-types';
 import path from 'path';
 import typeOf from 'typeof';
 import OpenApi2Spec from './classes/OpenApi2Spec';
 import OpenApi3Spec from './classes/OpenApi3Spec';
 import { stringify } from './utils/common.utils';
+
+// openapi-schema-validator is a CommonJS module that sets `exports.__esModule = true`
+// and exports the class via `exports.default`. When imported natively as ESM, Node.js
+// exposes the whole `module.exports` object as the default, so we must unwrap `.default`
+// to get the actual constructor. The `??` fallback covers the CJS build context where
+// the bundler (esbuild/__toESM) has already unwrapped it for us.
+const OpenAPISchemaValidator = (
+  (
+    OpenAPISchemaValidatorModule as unknown as {
+      default?: typeof OpenAPISchemaValidatorModule;
+    }
+  ).default ?? OpenAPISchemaValidatorModule
+);
 
 type AnyObject = Record<string, unknown>;
 
