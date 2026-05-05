@@ -419,7 +419,7 @@ __metadata:
     "@types/chai": "npm:^4.2.15"
     "@types/mocha": "npm:^10.0.10"
     "@types/supertest": "npm:^7.2.0"
-    axios: "npm:^1.15.0"
+    axios: "npm:^1.15.2"
     chai: "npm:^6.2.2"
     chai-http: "npm:^5.1.2"
     eslint: "npm:^7.11.0"
@@ -444,7 +444,7 @@ __metadata:
     "@ehuelsmann/openapi-validator": "npm:^0.16.1"
     "@types/jest": "npm:^30.0.0"
     "@types/supertest": "npm:^7.2.0"
-    axios: "npm:^1.15.0"
+    axios: "npm:^1.15.2"
     eslint: "npm:^7.11.0"
     eslint-plugin-jest: "npm:^27.9.0"
     express: "npm:^5.2.1"
@@ -466,7 +466,7 @@ __metadata:
     "@types/js-yaml": "npm:^4.0.3"
     "@types/superagent": "npm:^4.1.12"
     "@types/typeof": "npm:^1.0.0"
-    axios: "npm:^1.15.0"
+    axios: "npm:^1.15.2"
     combos: "npm:^0.2.0"
     fs-extra: "npm:^9.0.0"
     js-yaml: "npm:^4.0.0"
@@ -2395,14 +2395,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "axios@npm:1.15.0"
+"axios@npm:^1.15.2":
+  version: 1.16.0
+  resolution: "axios@npm:1.16.0"
   dependencies:
-    follow-redirects: "npm:^1.15.11"
+    follow-redirects: "npm:^1.16.0"
     form-data: "npm:^4.0.5"
     proxy-from-env: "npm:^2.1.0"
-  checksum: 10c0/47e0f860e98d4d7aa145e89ce0cae00e1fb0f1d2485f065c21fce955ddb1dba4103a46bd0e47acd18a27208a7f62c96249e620db575521b92a968619ab133409
+  checksum: 10c0/1c91a5221b77b76072026b4cc95ecdf38f7c3e33e63423abec09a85e6e9a12279637dcc9ac2ba1fc333e0c447fb3b0f46d7965acb5d7cea02d188e9c6d425c0b
   languageName: node
   linkType: hard
 
@@ -4152,7 +4152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.11":
+"follow-redirects@npm:^1.16.0":
   version: 1.16.0
   resolution: "follow-redirects@npm:1.16.0"
   peerDependenciesMeta:
