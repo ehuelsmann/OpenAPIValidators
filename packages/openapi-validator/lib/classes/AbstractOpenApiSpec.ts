@@ -1,4 +1,4 @@
-import OpenAPIResponseValidator, {
+import OpenAPIResponseValidatorModule, {
   type OpenAPIResponseValidatorArgs,
 } from 'openapi-response-validator';
 import type { OpenAPIV2, OpenAPIV3, OpenAPIV3_1 } from 'openapi-types';
@@ -13,6 +13,12 @@ type Operation = OpenAPIV2.OperationObject | OpenAPIV3.OperationObject;
 type HttpMethods = OpenAPIV2.HttpMethods;
 
 type PathItemObject = OpenAPIV2.PathItemObject | OpenAPIV3.PathItemObject;
+
+const OpenAPIResponseValidator = (
+  OpenAPIResponseValidatorModule as unknown as {
+    default?: typeof OpenAPIResponseValidatorModule;
+  }
+).default ?? OpenAPIResponseValidatorModule;
 
 export type ResponseObjectWithSchema =
   | (OpenAPIV2.ResponseObject & { schema: OpenAPIV2.Schema })
