@@ -75,6 +75,6 @@
   },
   "dependencies": {
     "@ehuelsmann/openapi-validator": "^0.16.3",
-    "jest-matcher-utils": "^29.0.0"
+    "jest-matcher-utils": "^30.0.0"
   }
 }
