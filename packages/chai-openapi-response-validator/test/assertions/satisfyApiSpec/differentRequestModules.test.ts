@@ -1,6 +1,5 @@
 import chai from 'chai';
 import path from 'path';
-import chaiHttp, { request } from 'chai-http';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 
@@ -13,6 +12,9 @@ const pathToApiSpec = path.resolve(
   '../../commonTestResources/exampleOpenApiFiles/valid/openapi3.yml',
 );
 const { expect, AssertionError } = chai;
+const importChaiHttp = () => import('chai-http');
+let chaiHttp: Awaited<ReturnType<typeof importChaiHttp>>['default'];
+let request: Awaited<ReturnType<typeof importChaiHttp>>['request'];
 
 describe('Parsing responses from different request modules', () => {
   before(() => {
@@ -20,7 +22,10 @@ describe('Parsing responses from different request modules', () => {
   });
 
   describe('chai-http', () => {
-    chai.use(chaiHttp);
+    before(async () => {
+      ({ default: chaiHttp, request } = await importChaiHttp());
+      chai.use(chaiHttp);
+    });
 
     describe('res header is application/json, and res.body is a string', () => {
       let res: ChaiHttp.Response;
