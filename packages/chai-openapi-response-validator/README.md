@@ -1,7 +1,5 @@
 # Chai OpenAPI Response Validator
 
-> **Notice:** Support for responses from [`request`](https://github.com/request/request#deprecated) and [`request-promise`](https://github.com/request/request-promise#deprecated) has been removed because both upstream projects are deprecated.
-
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 ![build status](https://github.com/ehuelsmann/OpenAPIValidators/actions/workflows/ci.yml/badge.svg)
