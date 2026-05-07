@@ -9,6 +9,31 @@ function readJson(file) {
 function writeJson(file, obj) {
   fs.writeFileSync(file, JSON.stringify(obj, null, 2) + "\n", "utf8");
 }
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function patchYarnLock(file, packageNames, version) {
+  if (!fs.existsSync(file)) return false;
+
+  const before = fs.readFileSync(file, "utf8");
+  let after = before;
+
+  const semverPattern = "(?:\\^|~)?\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z-.]+)?(?:\\+[0-9A-Za-z-.]+)?";
+
+  for (const name of packageNames) {
+    const escaped = escapeRegExp(name);
+    const descriptorPattern = new RegExp(`(${escaped}@npm:)${semverPattern}`, "g");
+    const dependencyPattern = new RegExp(`("${escaped}":\\s*"npm:)${semverPattern}(")`, "g");
+
+    after = after.replace(descriptorPattern, `$1^${version}`);
+    after = after.replace(dependencyPattern, `$1^${version}$2`);
+  }
+
+  if (after === before) return false;
+
+  fs.writeFileSync(file, after, "utf8");
+  return true;
+}
 
 const newVersion = process.argv[2];
 if (!newVersion) {
@@ -19,6 +44,7 @@ if (!newVersion) {
 // repo root = parent of scripts/
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packagesDir = path.join(repoRoot, "packages");
+const yarnLockPath = path.join(repoRoot, "yarn.lock");
 
 if (!fs.existsSync(packagesDir)) {
   console.error(`Expected packages dir at: ${packagesDir}`);
@@ -71,4 +97,7 @@ for (const p of packageJsonPaths) {
 }
 
 console.log(`Bumped ${changed} package(s) to version ${newVersion}.`);
+if (patchYarnLock(yarnLockPath, internalNames, newVersion)) {
+  console.log("Patched internal dependency versions in yarn.lock.");
+}
 console.log("Next steps: review git diff, commit, then create/push tag for your workflow.");
