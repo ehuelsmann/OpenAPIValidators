@@ -13,8 +13,9 @@ const pathToApiSpec = path.resolve(
 );
 const { expect, AssertionError } = chai;
 const importChaiHttp = () => import('chai-http');
-let chaiHttp: Awaited<ReturnType<typeof importChaiHttp>>['default'];
-let request: Awaited<ReturnType<typeof importChaiHttp>>['request'];
+type ChaiHttpModule = Awaited<ReturnType<typeof importChaiHttp>>;
+let chaiHttp: ChaiHttpModule['default'];
+let request: ChaiHttpModule['request'];
 
 describe('Parsing responses from different request modules', () => {
   before(() => {
