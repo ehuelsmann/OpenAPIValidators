@@ -8,6 +8,9 @@ const config: Config = {
   moduleNameMapper: {
     '^@ehuelsmann/openapi-validator$': '<rootDir>/openapi-validator/index.ts',
   },
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', { tsconfig: '<rootDir>/jest-openapi/tsconfig.json' }],
+  },
   collectCoverageFrom: [
     '<rootDir>/jest-openapi/src/**/*',
     '<rootDir>/openapi-validator/lib/**/*',
