@@ -52,6 +52,7 @@ function loadSpec(arg: unknown): AnyObject {
       `The provided argument must be either an absolute filepath or an object representing an OpenAPI specification.\nError details: ${
         (error as Error).message
       }`,
+      { cause: error },
     );
   }
 }
@@ -64,7 +65,7 @@ function loadFile(filepath: string): AnyObject {
   try {
     return yaml.load(fileData) as AnyObject;
   } catch (error) {
-    throw new Error(`Invalid YAML or JSON:\n${(error as Error).message}`);
+    throw new Error(`Invalid YAML or JSON:\n${(error as Error).message}`, { cause: error });
   }
 }
 
@@ -81,6 +82,6 @@ function validateSpec(obj: AnyObject): OpenAPI.Document {
     }
     return obj as OpenAPI.Document;
   } catch (error) {
-    throw new Error(`Invalid OpenAPI spec: ${(error as Error).message}`);
+    throw new Error(`Invalid OpenAPI spec: ${(error as Error).message}`, { cause: error });
   }
 }
