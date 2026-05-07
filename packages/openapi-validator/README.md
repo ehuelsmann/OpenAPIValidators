@@ -13,6 +13,10 @@
 
 Common code for [@ehuelsmann/jest-openapi](https://www.npmjs.com/package/@ehuelsmann/jest-openapi) and [Chai OpenAPI Response Validator](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 
+## Keywords
+
+`openapi` `swagger` `validate` `response` `testing` `jest` `chai` `http` `api` `schema`
+
 ## Contributing ✨
 
 If you've come here to help contribute - thanks! Take a look at the [contributing](https://github.com/ehuelsmann/OpenAPIValidators/blob/master/CONTRIBUTING.md) docs to get started.
