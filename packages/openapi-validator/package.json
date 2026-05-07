@@ -41,6 +41,12 @@
   "keywords": [
     "jest",
     "chai",
+    "vitest",
+    "mocha",
+    "ava",
+    "jasmine",
+    "framework-agnostic",
+    "test-framework-agnostic",
     "openapi",
     "testing",
     "response",
