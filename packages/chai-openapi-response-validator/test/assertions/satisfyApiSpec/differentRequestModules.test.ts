@@ -12,8 +12,8 @@ const pathToApiSpec = path.resolve(
   '../../commonTestResources/exampleOpenApiFiles/valid/openapi3.yml',
 );
 const { expect, AssertionError } = chai;
-const importChaiHttp = () => import('chai-http');
-type ChaiHttpModule = Awaited<ReturnType<typeof importChaiHttp>>;
+const getChaiHttpModule = () => import('chai-http');
+type ChaiHttpModule = Awaited<ReturnType<typeof getChaiHttpModule>>;
 let chaiHttp: ChaiHttpModule['default'];
 let request: ChaiHttpModule['request'];
 
@@ -24,7 +24,7 @@ describe('Parsing responses from different request modules', () => {
 
   describe('chai-http', () => {
     before(async () => {
-      ({ default: chaiHttp, request } = await importChaiHttp());
+      ({ default: chaiHttp, request } = await getChaiHttpModule());
       chai.use(chaiHttp);
     });
 
