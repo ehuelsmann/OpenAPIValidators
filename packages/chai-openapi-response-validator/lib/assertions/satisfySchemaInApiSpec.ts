@@ -13,7 +13,7 @@ export default function (
     const schema = openApiSpec.getSchemaObject(schemaName);
     if (!schema) {
       // alert users they are misusing this assertion
-      // eslint-disable-next-line @typescript-eslint/no-throw-literal
+      // eslint-disable-next-line @typescript-eslint/only-throw-error
       throw new AssertionError(
         'The argument to satisfySchemaInApiSpec must match a schema in your API spec',
       );
