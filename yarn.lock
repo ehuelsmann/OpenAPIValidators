@@ -443,7 +443,7 @@ __metadata:
   dependencies:
     "@types/fs-extra": "npm:^9.0.12"
     "@types/js-yaml": "npm:^4.0.3"
-    "@types/superagent": "npm:^4.1.12"
+    "@types/superagent": "npm:^8.1.9"
     "@types/typeof": "npm:^1.0.0"
     axios: "npm:^1.15.2"
     combos: "npm:^0.2.0"
@@ -1551,7 +1551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cookiejar@npm:*, @types/cookiejar@npm:^2.1.5":
+"@types/cookiejar@npm:^2.1.5":
   version: 2.1.5
   resolution: "@types/cookiejar@npm:2.1.5"
   checksum: 10c0/af38c3d84aebb3ccc6e46fb6afeeaac80fb26e63a487dd4db5a8b87e6ad3d4b845ba1116b2ae90d6f886290a36200fa433d8b1f6fe19c47da6b81872ce9a2764
@@ -1744,17 +1744,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/superagent@npm:^4.1.12":
-  version: 4.1.24
-  resolution: "@types/superagent@npm:4.1.24"
-  dependencies:
-    "@types/cookiejar": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 10c0/98109e94d4c0b2f9360ae31a411f8a830109704a080b6a7b5f12da2bb549e596fc6a4072f45fb2c3ddfcf23974c41ac68e3cbcbf9fd6f32fca64f81cc867d5e6
-  languageName: node
-  linkType: hard
-
-"@types/superagent@npm:^8.1.0, @types/superagent@npm:^8.1.7":
+"@types/superagent@npm:^8.1.0, @types/superagent@npm:^8.1.7, @types/superagent@npm:^8.1.9":
   version: 8.1.9
   resolution: "@types/superagent@npm:8.1.9"
   dependencies:
