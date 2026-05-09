@@ -63,7 +63,7 @@
     "dist"
   ],
   "dependencies": {
-    "@types/superagent": "^4.1.12",
+    "@types/superagent": "^8.1.9",
     "axios": "^1.15.2",
     "combos": "^0.2.0",
     "fs-extra": "^9.0.0",
