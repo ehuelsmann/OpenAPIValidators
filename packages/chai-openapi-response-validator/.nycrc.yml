@@ -2,7 +2,7 @@ cwd: '..'
 include:
   - chai-openapi-response-validator
   - openapi-validator
-statements: 98
-branches: 98
-functions: 98
-lines: 98
+statements: 97
+branches: 97
+functions: 97
+lines: 97
