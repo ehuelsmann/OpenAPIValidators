@@ -1,14 +1,14 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["src"],
+  "references": [
+    {
+      "path": "../openapi-validator"
+    }
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "@ehuelsmann/openapi-validator": [
-        "../openapi-validator/lib/index.ts"
-      ]
-    }
+    "composite": true
   }
 }
