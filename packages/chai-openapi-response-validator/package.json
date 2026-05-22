@@ -25,7 +25,7 @@
     "lint": "yarn build:openapi-validator && tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
     "build": "yarn build:openapi-validator && tsup",
-    "test": "yarn build:openapi-validator && mocha --require ts-node/register --extension ts --recursive",
+    "test": "yarn build:openapi-validator && mocha --require ts-node/register --require tsconfig-paths/register --extension ts --recursive",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
     "test:coverage:browse": "yarn test:coverage; open ../coverage/lcov-report/index.html",
