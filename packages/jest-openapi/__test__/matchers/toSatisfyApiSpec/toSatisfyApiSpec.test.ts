@@ -8,7 +8,7 @@ import {
 import {
   joinWithNewLines,
   str,
-} from 'openapi-validators/commonTestResources/utils';
+} from '@ehuelsmann/common-test-resources/utils';
 import jestOpenAPI from '../../..';
 
 const expectReceivedToSatisfyApiSpec = matcherHint(

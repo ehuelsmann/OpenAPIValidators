@@ -1,0 +1,21 @@
+{
+  "name": "@ehuelsmann/common-test-resources",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "default": "./dist/utils.js"
+    },
+    "./exampleApp": {
+      "types": "./dist/exampleApp.d.ts",
+      "default": "./dist/exampleApp.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}

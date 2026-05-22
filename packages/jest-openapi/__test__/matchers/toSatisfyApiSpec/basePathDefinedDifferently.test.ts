@@ -5,7 +5,7 @@ import {
   matcherHint,
 } from 'jest-matcher-utils';
 
-import { joinWithNewLines } from 'openapi-validators/commonTestResources/utils';
+import { joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 import jestOpenAPI from '../../..';
 
 const expectReceivedToSatisfyApiSpec = matcherHint(

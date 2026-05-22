@@ -4,7 +4,7 @@ import path from 'path';
 import {
   joinWithNewLines,
   str,
-} from 'openapi-validators/commonTestResources/utils';
+} from '@ehuelsmann/common-test-resources/utils';
 import chaiResponseValidator from '../../..';
 
 const expectedResToSatisfyApiSpec = 'expected res to satisfy API spec';

@@ -60,6 +60,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@ehuelsmann/common-test-resources": "workspace:*",
     "@types/jest": "^30.0.0",
     "@types/supertest": "^7.2.0",
     "axios": "^1.15.2",

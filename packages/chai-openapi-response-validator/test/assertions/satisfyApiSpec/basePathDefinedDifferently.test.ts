@@ -1,7 +1,7 @@
 import chai from 'chai';
 import path from 'path';
 
-import { joinWithNewLines } from 'openapi-validators/commonTestResources/utils';
+import { joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 import chaiResponseValidator from '../../..';
 
 const dirContainingApiSpec = path.resolve(

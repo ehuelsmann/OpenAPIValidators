@@ -1,7 +1,7 @@
 import { RECEIVED_COLOR as red } from 'jest-matcher-utils';
 import path from 'path';
 
-import { joinWithNewLines } from 'openapi-validators/commonTestResources/utils';
+import { joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 import jestOpenAPI from '../../..';
 
 const openApiSpecsDir = path.resolve(
