@@ -1,4 +1,8 @@
 import path from 'path';
+import { resolveCommonTestResource ,
+  joinWithNewLines,
+  str,
+} from '@ehuelsmann/common-test-resources/utils';
 import {
   matcherHint,
   RECEIVED_COLOR as red,
@@ -8,10 +12,6 @@ import {
   printExpected,
 } from 'jest-matcher-utils';
 
-import {
-  joinWithNewLines,
-  str,
-} from '@ehuelsmann/common-test-resources/utils';
 import jestOpenAPI from '../../..';
 
 const expectReceivedToSatisfySchemaInApiSpec = matcherHint(
@@ -36,8 +36,8 @@ const expectReceivedNotToSatisfySchemaInApiSpec = matcherHint(
   },
 );
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/satisfySchemaInApiSpec',
 );
 const openApiSpecs = [
   {

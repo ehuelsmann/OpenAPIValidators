@@ -1,11 +1,11 @@
-import chai from 'chai';
 import path from 'path';
+import chai from 'chai';
+import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 
-import { joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 import chaiResponseValidator from '../../..';
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/noResponseComponents',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/noResponseComponents',
 );
 const openApiSpecs = [
   {

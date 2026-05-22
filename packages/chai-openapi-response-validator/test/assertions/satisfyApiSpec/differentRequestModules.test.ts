@@ -1,15 +1,14 @@
 import chai from 'chai';
-import path from 'path';
+import { resolveCommonTestResource , str } from '@ehuelsmann/common-test-resources/utils';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 
-import { str } from '@ehuelsmann/common-test-resources/utils';
 import app, { port } from '@ehuelsmann/common-test-resources/exampleApp';
 import chaiResponseValidator from '../../..';
 
 const appOrigin = `http://localhost:${port}`;
-const pathToApiSpec = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/openapi3.yml',
+const pathToApiSpec = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/openapi3.yml',
 );
 const { expect, AssertionError } = chai;
 const loadChaiHttpModule = () => import('chai-http');

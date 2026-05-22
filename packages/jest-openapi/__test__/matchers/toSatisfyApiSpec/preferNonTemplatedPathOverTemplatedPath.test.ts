@@ -1,9 +1,10 @@
 import path from 'path';
+import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 
 import jestOpenAPI from '../../..';
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/preferNonTemplatedPathOverTemplatedPath',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/preferNonTemplatedPathOverTemplatedPath',
 );
 
 describe('expect(res).toSatisfyApiSpec() (using an OpenAPI spec with similar templated and non-templated OpenAPI paths)', () => {
