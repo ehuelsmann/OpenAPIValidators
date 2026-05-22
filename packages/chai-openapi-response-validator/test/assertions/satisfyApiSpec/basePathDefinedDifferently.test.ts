@@ -1,11 +1,11 @@
-import chai from 'chai';
 import path from 'path';
+import chai from 'chai';
+import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 
-import { joinWithNewLines } from '../../../../../commonTestResources/utils';
 import chaiResponseValidator from '../../..';
 
-const dirContainingApiSpec = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/basePathDefinedDifferently',
+const dirContainingApiSpec = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/basePathDefinedDifferently',
 );
 const { expect, AssertionError } = chai;
 

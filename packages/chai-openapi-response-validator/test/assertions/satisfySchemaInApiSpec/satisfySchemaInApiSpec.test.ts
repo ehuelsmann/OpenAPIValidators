@@ -1,14 +1,14 @@
-import chai from 'chai';
 import path from 'path';
-
-import {
+import chai from 'chai';
+import { resolveCommonTestResource ,
   joinWithNewLines,
   str,
-} from '../../../../../commonTestResources/utils';
+} from '@ehuelsmann/common-test-resources/utils';
+
 import chaiResponseValidator from '../../..';
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/satisfySchemaInApiSpec',
 );
 const openApiSpecs = [
   {

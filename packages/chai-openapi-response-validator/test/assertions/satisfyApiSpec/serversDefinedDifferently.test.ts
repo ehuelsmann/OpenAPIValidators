@@ -1,16 +1,16 @@
-import chai from 'chai';
 import path from 'path';
-
-import {
+import chai from 'chai';
+import { resolveCommonTestResource ,
   joinWithNewLines,
   str,
-} from '../../../../../commonTestResources/utils';
+} from '@ehuelsmann/common-test-resources/utils';
+
 import chaiResponseValidator from '../../..';
 
 const expectedResToSatisfyApiSpec = 'expected res to satisfy API spec';
 
-const dirContainingApiSpec = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/serversDefinedDifferently',
+const dirContainingApiSpec = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/serversDefinedDifferently',
 );
 const { expect, AssertionError } = chai;
 

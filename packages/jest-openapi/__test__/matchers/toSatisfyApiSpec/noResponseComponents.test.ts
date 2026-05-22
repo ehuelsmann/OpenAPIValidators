@@ -1,11 +1,11 @@
-import { RECEIVED_COLOR as red } from 'jest-matcher-utils';
 import path from 'path';
+import { RECEIVED_COLOR as red } from 'jest-matcher-utils';
+import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
 
-import { joinWithNewLines } from '../../../../../commonTestResources/utils';
 import jestOpenAPI from '../../..';
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/noResponseComponents',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/noResponseComponents',
 );
 const openApiSpecs = [
   {

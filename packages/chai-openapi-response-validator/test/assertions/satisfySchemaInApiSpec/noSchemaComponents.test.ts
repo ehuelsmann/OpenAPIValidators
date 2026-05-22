@@ -1,10 +1,11 @@
-import chai from 'chai';
 import path from 'path';
+import chai from 'chai';
+import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 
 import chaiResponseValidator from '../../..';
 
-const openApiSpecsDir = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/satisfySchemaInApiSpec/noSchemaComponents',
+const openApiSpecsDir = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/satisfySchemaInApiSpec/noSchemaComponents',
 );
 const openApiSpecs = [
   {

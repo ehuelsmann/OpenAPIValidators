@@ -1,10 +1,11 @@
-import chai from 'chai';
 import path from 'path';
+import chai from 'chai';
+import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 
 import chaiResponseValidator from '..';
 
-const dirContainingApiSpec = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/bugRecreationTemplate',
+const dirContainingApiSpec = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/bugRecreationTemplate',
 );
 const { expect } = chai;
 

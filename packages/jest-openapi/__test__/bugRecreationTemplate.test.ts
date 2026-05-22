@@ -1,10 +1,11 @@
 import path from 'path';
+import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 import { inspect } from 'util';
 
 import jestOpenAPI from '..';
 
-const dirContainingApiSpec = path.resolve(
-  '../../commonTestResources/exampleOpenApiFiles/valid/bugRecreationTemplate',
+const dirContainingApiSpec = resolveCommonTestResource(
+  'exampleOpenApiFiles/valid/bugRecreationTemplate',
 );
 
 describe('Recreate bug (issue #XX)', () => {
