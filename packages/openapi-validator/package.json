@@ -64,7 +64,7 @@
   ],
   "dependencies": {
     "@types/superagent": "^8.1.9",
-    "axios": "^1.15.2",
+    "axios": "^1.16.1",
     "combos": "^0.2.0",
     "fs-extra": "^11.3.5",
     "js-yaml": "^4.0.0",
