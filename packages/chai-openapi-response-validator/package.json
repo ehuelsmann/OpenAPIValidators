@@ -8,7 +8,7 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.mjs"
       },
       "require": {
@@ -25,7 +25,7 @@
     "format": "prettier --write ../../ --ignore-path ../../.prettierignore",
     "lint": "yarn build:openapi-validator && yarn build:common-test-resources && tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "yarn build:openapi-validator && tsup",
+    "build": "yarn build:openapi-validator && tsc -p tsconfig.json --rootDir lib --types chai && tsup && tsc -p tsconfig.json --rootDir lib --types chai",
     "test": "yarn build:openapi-validator && yarn build:common-test-resources && mocha --require ts-node/register --extension ts --recursive",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && yarn build:common-test-resources && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
