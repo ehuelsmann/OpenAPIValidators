@@ -119,7 +119,6 @@ function getExpectedResToSatisfyApiSpecMsg(
 
   if (validationError.code === ErrorCode.StatusNotFound) {
     const expectedResponseOperation =
-       
       openApiSpec.findExpectedResponseOperation(req)!;
     const expectedResponseStatuses = Object.keys(
       expectedResponseOperation.responses,

@@ -9,7 +9,10 @@ const config: Config = {
     '^@ehuelsmann/openapi-validator$': '<rootDir>/openapi-validator/index.ts',
   },
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', { tsconfig: '<rootDir>/jest-openapi/tsconfig.json' }],
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      { tsconfig: '<rootDir>/jest-openapi/tsconfig.json' },
+    ],
   },
   collectCoverageFrom: [
     '<rootDir>/jest-openapi/src/**/*',

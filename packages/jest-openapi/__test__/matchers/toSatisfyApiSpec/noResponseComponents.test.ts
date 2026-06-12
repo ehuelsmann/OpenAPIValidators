@@ -1,6 +1,9 @@
 import path from 'path';
 import { RECEIVED_COLOR as red } from 'jest-matcher-utils';
-import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
+import {
+  resolveCommonTestResource,
+  joinWithNewLines,
+} from '@ehuelsmann/common-test-resources/utils';
 
 import jestOpenAPI from '../../..';
 

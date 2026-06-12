@@ -14,11 +14,12 @@ type HttpMethods = OpenAPIV2.HttpMethods;
 
 type PathItemObject = OpenAPIV2.PathItemObject | OpenAPIV3.PathItemObject;
 
-const OpenAPIResponseValidator = (
-  OpenAPIResponseValidatorModule as unknown as {
-    default?: typeof OpenAPIResponseValidatorModule;
-  }
-).default ?? OpenAPIResponseValidatorModule;
+const OpenAPIResponseValidator =
+  (
+    OpenAPIResponseValidatorModule as unknown as {
+      default?: typeof OpenAPIResponseValidatorModule;
+    }
+  ).default ?? OpenAPIResponseValidatorModule;
 
 export type ResponseObjectWithSchema =
   | (OpenAPIV2.ResponseObject & { schema: OpenAPIV2.Schema })
@@ -63,7 +64,6 @@ export default abstract class OpenApiSpec {
   }
 
   getPathItem(openApiPath: string): PathItemObject {
-     
     return this.pathsObject()[openApiPath]!;
   }
 
@@ -148,7 +148,6 @@ export default abstract class OpenApiSpec {
       ...this.getComponentDefinitionsProperty(),
     } as OpenAPIResponseValidatorArgs);
 
-     
     const expectedResStatus = Object.keys(expectedResponse)[0]!;
     const validationError = validator.validateResponse(
       expectedResStatus,
@@ -157,8 +156,11 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidBody,
-          validationError.errors!
-            .map(({ path, message }: { path?: string; message: string }) => `${path} ${message}`)
+          validationError
+            .errors!.map(
+              ({ path, message }: { path?: string; message: string }) =>
+                `${path} ${message}`,
+            )
             .join(', '),
         )
       : null;
@@ -179,10 +181,18 @@ export default abstract class OpenApiSpec {
     const mockResStatus = '200';
     const mockExpectedResponse = { [mockResStatus]: { schema } };
     const validator = new OpenAPIResponseValidator({
-      responses: mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
+      responses:
+        mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
       ...this.getComponentDefinitionsProperty(),
-       
-      errorTransformer: ({ path, message }: { path?: string; message: string; errorCode: string }) => ({
+
+      errorTransformer: ({
+        path,
+        message,
+      }: {
+        path?: string;
+        message: string;
+        errorCode: string;
+      }) => ({
         message: `${path!.replace('response', 'object')} ${message}`,
       }),
     } as OpenAPIResponseValidatorArgs);
@@ -193,7 +203,9 @@ export default abstract class OpenApiSpec {
     return validationError
       ? new ValidationError(
           ErrorCode.InvalidObject,
-          validationError.errors!.map((error: { message: string }) => error.message).join(', '),
+          validationError
+            .errors!.map((error: { message: string }) => error.message)
+            .join(', '),
         )
       : null;
   }

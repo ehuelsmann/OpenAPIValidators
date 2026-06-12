@@ -1,15 +1,14 @@
 import path from 'path';
 import chai from 'chai';
-import { resolveCommonTestResource ,
+import {
+  resolveCommonTestResource,
   joinWithNewLines,
   str,
 } from '@ehuelsmann/common-test-resources/utils';
 
 import chaiResponseValidator from '../../..';
 
-const openApiSpecsDir = resolveCommonTestResource(
-  'exampleOpenApiFiles/valid',
-);
+const openApiSpecsDir = resolveCommonTestResource('exampleOpenApiFiles/valid');
 const openApiSpecs = [
   {
     openApiVersion: 2,

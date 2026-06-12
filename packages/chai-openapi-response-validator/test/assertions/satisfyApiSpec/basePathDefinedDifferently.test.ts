@@ -1,6 +1,9 @@
 import path from 'path';
 import chai from 'chai';
-import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
+import {
+  resolveCommonTestResource,
+  joinWithNewLines,
+} from '@ehuelsmann/common-test-resources/utils';
 
 import chaiResponseValidator from '../../..';
 

@@ -13,13 +13,12 @@ import { stringify } from './utils/common.utils';
 // exposes the whole `module.exports` object as the default, so we must unwrap `.default`
 // to get the actual constructor. The `??` fallback covers the CJS build context where
 // the bundler (esbuild/__toESM) has already unwrapped it for us.
-const OpenAPISchemaValidator = (
+const OpenAPISchemaValidator =
   (
     OpenAPISchemaValidatorModule as unknown as {
       default?: typeof OpenAPISchemaValidatorModule;
     }
-  ).default ?? OpenAPISchemaValidatorModule
-);
+  ).default ?? OpenAPISchemaValidatorModule;
 
 type AnyObject = Record<string, unknown>;
 
@@ -65,7 +64,9 @@ function loadFile(filepath: string): AnyObject {
   try {
     return yaml.load(fileData) as AnyObject;
   } catch (error) {
-    throw new Error(`Invalid YAML or JSON:\n${(error as Error).message}`, { cause: error });
+    throw new Error(`Invalid YAML or JSON:\n${(error as Error).message}`, {
+      cause: error,
+    });
   }
 }
 
@@ -82,6 +83,8 @@ function validateSpec(obj: AnyObject): OpenAPI.Document {
     }
     return obj as OpenAPI.Document;
   } catch (error) {
-    throw new Error(`Invalid OpenAPI spec: ${(error as Error).message}`, { cause: error });
+    throw new Error(`Invalid OpenAPI spec: ${(error as Error).message}`, {
+      cause: error,
+    });
   }
 }

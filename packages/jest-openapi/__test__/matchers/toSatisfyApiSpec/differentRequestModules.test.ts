@@ -1,4 +1,7 @@
-import { resolveCommonTestResource , str } from '@ehuelsmann/common-test-resources/utils';
+import {
+  resolveCommonTestResource,
+  str,
+} from '@ehuelsmann/common-test-resources/utils';
 import axios, { AxiosResponse } from 'axios';
 import supertest, { Response as SuperAgentResponse } from 'supertest';
 

@@ -88,7 +88,6 @@ export const getMatchingServerUrlsAndServerBasePaths = (
     }))
     .filter(({ possibleBasePaths }) => possibleBasePaths.some(matchesPathname))
     .map(({ templatedUrl, possibleBasePaths }) => {
-       
       const matchingBasePath = possibleBasePaths.find(matchesPathname)!;
       return {
         concreteUrl: templatedUrl.replace(
