@@ -1,4 +1,4 @@
-import chai from 'chai';
+import * as chai from 'chai';
 import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 import fs from 'fs-extra';
 

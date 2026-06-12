@@ -1,5 +1,5 @@
 import path from 'path';
-import chai from 'chai';
+import * as chai from 'chai';
 import { resolveCommonTestResource } from '@ehuelsmann/common-test-resources/utils';
 
 import chaiResponseValidator from '../../..';
