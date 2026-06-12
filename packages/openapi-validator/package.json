@@ -8,7 +8,7 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.mjs"
       },
       "require": {
@@ -22,7 +22,7 @@
     "format": "prettier --write . --ignore-path ../../.prettierignore",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "tsup",
+    "build": "tsup && tsc -p tsconfig.json --rootDir lib",
     "test": "echo",
     "test:ci": "echo",
     "prepack": "yarn build"
