@@ -26,7 +26,7 @@
     "format": "prettier --write ../../ --ignore-path ../../.prettierignore",
     "lint": "yarn build:openapi-validator && yarn build:common-test-resources && tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "yarn build:openapi-validator && yarn build:dts && tsup && yarn build:dts",
+    "build": "yarn build:openapi-validator && yarn build:dts && tsup",
     "test": "yarn build:openapi-validator && yarn build:common-test-resources && node --import tsx $(yarn bin mocha) --extension ts --recursive",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && yarn build && yarn build:openapi-validator && yarn build:common-test-resources && nyc yarn test && nyc report --reporter=lcov && nyc check-coverage",
