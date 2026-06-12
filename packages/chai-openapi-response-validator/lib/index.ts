@@ -1,6 +1,6 @@
 import { makeApiSpec, OpenAPISpecObject } from '@ehuelsmann/openapi-validator';
-import satisfyApiSpec from './assertions/satisfyApiSpec';
-import satisfySchemaInApiSpec from './assertions/satisfySchemaInApiSpec';
+import satisfyApiSpec from './assertions/satisfyApiSpec.js';
+import satisfySchemaInApiSpec from './assertions/satisfySchemaInApiSpec.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -24,7 +24,7 @@ export default function (
   filepathOrObject: string | OpenAPISpecObject,
 ): Chai.ChaiPlugin {
   const openApiSpec = makeApiSpec(filepathOrObject);
-  return function (chai) {
+  return function (chai: Chai.ChaiStatic) {
     satisfyApiSpec(chai, openApiSpec);
     satisfySchemaInApiSpec(chai, openApiSpec);
   };

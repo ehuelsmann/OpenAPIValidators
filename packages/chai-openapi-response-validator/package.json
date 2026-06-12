@@ -2,6 +2,7 @@
   "name": "@ehuelsmann/chai-openapi-response-validator",
   "version": "0.17.3",
   "description": "Use Chai to assert that HTTP responses satisfy an OpenAPI spec",
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
