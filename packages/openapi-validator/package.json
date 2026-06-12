@@ -22,7 +22,7 @@
     "format": "prettier --write . --ignore-path ../../.prettierignore",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "tsup",
+    "build": "tsc -p tsconfig.json --rootDir lib && tsup",
     "test": "echo",
     "test:ci": "echo",
     "prepack": "yarn build"
