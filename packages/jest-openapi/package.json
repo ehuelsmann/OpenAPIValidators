@@ -23,7 +23,7 @@
     "format": "prettier --write ../../ --ignore-path ../../.prettierignore",
     "lint": "tsc --noEmit --project tsconfig.eslint.json && eslint .",
     "lint:fix": "yarn lint --fix",
-    "build": "tsc -p tsconfig.json --rootDir lib && tsup",
+    "build": "tsc -p tsconfig.json && tsup",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "yarn clean && yarn clean:openapi-validator && jest --coverage",

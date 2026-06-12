@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["lib"],
+  "include": ["./lib/**/*.ts"],
   "compilerOptions": {
+    "rootDir": "./",
     "types": ["node", "chai"],
-    "outDir": "dist",
+    "outDir": "./dist",
     "emitDeclarationOnly": true
   }
 }
