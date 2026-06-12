@@ -1,49 +1,51 @@
-import type { ChaiStatic, AssertionStatic } from 'chai';
 import type {
   OpenApiSpec,
   Schema,
   ValidationError,
 } from '@ehuelsmann/openapi-validator';
-import { stringify, joinWithNewLines } from '../utils';
+import { stringify, joinWithNewLines } from '../utils.js';
 
 export default function (
-  chai: ChaiStatic,
+  chai: Chai.ChaiStatic,
   openApiSpec: OpenApiSpec,
 ): void {
   const { Assertion, AssertionError } = chai;
 
-  Assertion.addMethod('satisfySchemaInApiSpec', function (this: AssertionStatic, schemaName: string) {
-    const actualObject = this._obj; // eslint-disable-line no-underscore-dangle
+  Assertion.addMethod(
+    'satisfySchemaInApiSpec',
+    function (this: Chai.AssertionStatic, schemaName: string) {
+      const actualObject = this._obj; // eslint-disable-line no-underscore-dangle
 
-    const schema = openApiSpec.getSchemaObject(schemaName);
-    if (!schema) {
-      // alert users they are misusing this assertion
-      // eslint-disable-next-line @typescript-eslint/only-throw-error
-      throw new AssertionError(
-        'The argument to satisfySchemaInApiSpec must match a schema in your API spec',
+      const schema = openApiSpec.getSchemaObject(schemaName);
+      if (!schema) {
+        // alert users they are misusing this assertion
+        // eslint-disable-next-line @typescript-eslint/only-throw-error
+        throw new AssertionError(
+          'The argument to satisfySchemaInApiSpec must match a schema in your API spec',
+        );
+      }
+
+      const validationError = openApiSpec.validateObject(actualObject, schema);
+      const pass = !validationError;
+      this.assert(
+        pass,
+        pass
+          ? ''
+          : getExpectReceivedToSatisfySchemaInApiSpecMsg(
+              actualObject,
+              schemaName,
+              schema,
+              validationError,
+            ),
+        getExpectReceivedNotToSatisfySchemaInApiSpecMsg(
+          actualObject,
+          schemaName,
+          schema,
+        ),
+        null,
       );
-    }
-
-    const validationError = openApiSpec.validateObject(actualObject, schema);
-    const pass = !validationError;
-    this.assert(
-      pass,
-      pass
-        ? ''
-        : getExpectReceivedToSatisfySchemaInApiSpecMsg(
-            actualObject,
-            schemaName,
-            schema,
-            validationError,
-          ),
-      getExpectReceivedNotToSatisfySchemaInApiSpecMsg(
-        actualObject,
-        schemaName,
-        schema,
-      ),
-      null,
-    );
-  });
+    },
+  );
 }
 
 function getExpectReceivedToSatisfySchemaInApiSpecMsg(

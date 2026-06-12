@@ -1,4 +1,3 @@
-import type { ChaiStatic, AssertionStatic } from 'chai';
 import {
   ActualResponse,
   ErrorCode,
@@ -8,34 +7,37 @@ import {
   OpenApiSpec,
   ValidationError,
 } from '@ehuelsmann/openapi-validator';
-import { joinWithNewLines, stringify } from '../utils';
+import { joinWithNewLines, stringify } from '../utils.js';
 
 export default function (
-  chai: ChaiStatic,
+  chai: Chai.ChaiStatic,
   openApiSpec: OpenApiSpec,
 ): void {
   const { Assertion } = chai;
 
-  Assertion.addProperty('satisfyApiSpec', function (this: AssertionStatic) {
-    const actualResponse = makeResponse(this._obj); // eslint-disable-line no-underscore-dangle
+  Assertion.addProperty(
+    'satisfyApiSpec',
+    function (this: Chai.AssertionStatic) {
+      const actualResponse = makeResponse(this._obj); // eslint-disable-line no-underscore-dangle
 
-    const validationError = openApiSpec.validateResponse(actualResponse);
-    const pass = !validationError;
-    this.assert(
-      pass,
-      pass
-        ? ''
-        : getExpectedResToSatisfyApiSpecMsg(
-            actualResponse,
-            openApiSpec,
-            validationError,
-          ),
-      pass
-        ? getExpectedResNotToSatisfyApiSpecMsg(actualResponse, openApiSpec)
-        : '',
-      null,
-    );
-  });
+      const validationError = openApiSpec.validateResponse(actualResponse);
+      const pass = !validationError;
+      this.assert(
+        pass,
+        pass
+          ? ''
+          : getExpectedResToSatisfyApiSpecMsg(
+              actualResponse,
+              openApiSpec,
+              validationError,
+            ),
+        pass
+          ? getExpectedResNotToSatisfyApiSpecMsg(actualResponse, openApiSpec)
+          : '',
+        null,
+      );
+    },
+  );
 }
 
 function getExpectedResToSatisfyApiSpecMsg(
