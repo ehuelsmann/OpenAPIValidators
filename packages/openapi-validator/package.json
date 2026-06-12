@@ -1,6 +1,6 @@
 {
   "name": "@ehuelsmann/openapi-validator",
-  "version": "v0.18.0",
+  "version": "0.18.0",
   "description": "Common code for jest-openapi and Chai OpenAPI Response Validator",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

@@ -1,6 +1,6 @@
 {
   "name": "@ehuelsmann/chai-openapi-response-validator",
-  "version": "v0.18.0",
+  "version": "0.18.0",
   "description": "Use Chai to assert that HTTP responses satisfy an OpenAPI spec",
   "type": "module",
   "main": "./dist/index.js",
@@ -65,7 +65,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@ehuelsmann/common-test-resources": "^v0.18.0",
+    "@ehuelsmann/common-test-resources": "^0.18.0",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/supertest": "^7.2.0",
@@ -86,6 +86,6 @@
     "tsup": "^8.5.1"
   },
   "dependencies": {
-    "@ehuelsmann/openapi-validator": "^v0.18.0"
+    "@ehuelsmann/openapi-validator": "^0.18.0"
   }
 }
