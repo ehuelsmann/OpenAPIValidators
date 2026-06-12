@@ -1,3 +1,4 @@
+import type { ChaiPlugin, ChaiStatic } from 'chai';
 import { makeApiSpec, OpenAPISpecObject } from '@ehuelsmann/openapi-validator';
 import satisfyApiSpec from './assertions/satisfyApiSpec';
 import satisfySchemaInApiSpec from './assertions/satisfySchemaInApiSpec';
@@ -22,9 +23,9 @@ declare global {
 
 export default function (
   filepathOrObject: string | OpenAPISpecObject,
-): Chai.ChaiPlugin {
+): ChaiPlugin {
   const openApiSpec = makeApiSpec(filepathOrObject);
-  return function (chai) {
+  return function (chai: ChaiStatic) {
     satisfyApiSpec(chai, openApiSpec);
     satisfySchemaInApiSpec(chai, openApiSpec);
   };

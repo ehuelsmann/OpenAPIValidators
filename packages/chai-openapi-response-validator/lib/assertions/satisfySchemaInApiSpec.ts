@@ -1,3 +1,4 @@
+import type { ChaiStatic, AssertionStatic } from 'chai';
 import type {
   OpenApiSpec,
   Schema,
@@ -6,12 +7,12 @@ import type {
 import { stringify, joinWithNewLines } from '../utils';
 
 export default function (
-  chai: Chai.ChaiStatic,
+  chai: ChaiStatic,
   openApiSpec: OpenApiSpec,
 ): void {
   const { Assertion, AssertionError } = chai;
 
-  Assertion.addMethod('satisfySchemaInApiSpec', function (schemaName) {
+  Assertion.addMethod('satisfySchemaInApiSpec', function (this: AssertionStatic, schemaName: string) {
     const actualObject = this._obj; // eslint-disable-line no-underscore-dangle
 
     const schema = openApiSpec.getSchemaObject(schemaName);

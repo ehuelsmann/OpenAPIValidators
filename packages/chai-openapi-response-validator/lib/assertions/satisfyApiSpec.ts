@@ -1,3 +1,4 @@
+import type { ChaiStatic, AssertionStatic } from 'chai';
 import {
   ActualResponse,
   ErrorCode,
@@ -10,12 +11,12 @@ import {
 import { joinWithNewLines, stringify } from '../utils';
 
 export default function (
-  chai: Chai.ChaiStatic,
+  chai: ChaiStatic,
   openApiSpec: OpenApiSpec,
 ): void {
   const { Assertion } = chai;
 
-  Assertion.addProperty('satisfyApiSpec', function () {
+  Assertion.addProperty('satisfyApiSpec', function (this: AssertionStatic) {
     const actualResponse = makeResponse(this._obj); // eslint-disable-line no-underscore-dangle
 
     const validationError = openApiSpec.validateResponse(actualResponse);
