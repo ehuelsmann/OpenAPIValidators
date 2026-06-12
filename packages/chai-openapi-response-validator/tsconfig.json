@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*.ts"],
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "./lib",
     "types": ["node", "chai"],
     "outDir": "./dist",
     "emitDeclarationOnly": true
