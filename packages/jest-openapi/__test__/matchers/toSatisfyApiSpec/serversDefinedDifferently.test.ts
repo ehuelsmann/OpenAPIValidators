@@ -1,5 +1,6 @@
 import path from 'path';
-import { resolveCommonTestResource ,
+import {
+  resolveCommonTestResource,
   joinWithNewLines,
   str,
 } from '@ehuelsmann/common-test-resources/utils';

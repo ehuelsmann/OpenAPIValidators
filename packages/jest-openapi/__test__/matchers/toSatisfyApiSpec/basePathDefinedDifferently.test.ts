@@ -1,5 +1,8 @@
 import path from 'path';
-import { resolveCommonTestResource , joinWithNewLines } from '@ehuelsmann/common-test-resources/utils';
+import {
+  resolveCommonTestResource,
+  joinWithNewLines,
+} from '@ehuelsmann/common-test-resources/utils';
 import {
   RECEIVED_COLOR as red,
   EXPECTED_COLOR as green,

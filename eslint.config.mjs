@@ -5,6 +5,7 @@ import path from 'path';
 import tseslint from 'typescript-eslint';
 import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
+import importPlugin from 'eslint-plugin-import';
 import jestPlugin from 'eslint-plugin-jest';
 import mochaPlugin from 'eslint-plugin-mocha';
 import chaiFriendlyPlugin from 'eslint-plugin-chai-friendly';
@@ -22,13 +23,21 @@ export default tseslint.config(
 
   {
     files: ['**/*.ts'],
+    ignores: [
+      'packages/chai-openapi-response-validator/test/**/*.ts',
+      'packages/chai-openapi-response-validator/tsup.config.ts',
+    ],
     extends: [
       eslintJs.configs.recommended,
       ...compat.extends('airbnb-base'),
       ...tseslint.configs.recommended,
       prettierConfig,
     ],
+    plugins: {
+      import: importPlugin,
+    },
     languageOptions: {
+      parser: tseslint.parser,
       globals: {
         ...globals.es2018,
         ...globals.node,
@@ -86,7 +95,10 @@ export default tseslint.config(
       camelcase: 'off',
       '@typescript-eslint/naming-convention': [
         'error',
-        { selector: 'variable', format: ['camelCase', 'PascalCase', 'UPPER_CASE'] },
+        {
+          selector: 'variable',
+          format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+        },
         { selector: 'function', format: ['camelCase', 'PascalCase'] },
         { selector: 'typeLike', format: ['PascalCase'] },
       ],
@@ -115,7 +127,11 @@ export default tseslint.config(
       'no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-expressions': [
         'error',
-        { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true },
+        {
+          allowShortCircuit: true,
+          allowTernary: true,
+          allowTaggedTemplates: true,
+        },
       ],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -139,6 +155,12 @@ export default tseslint.config(
   // Allow devDependencies in config files
   {
     files: ['**/*.config.ts'],
+    plugins: {
+      import: importPlugin,
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+    },
     rules: {
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     },
@@ -148,6 +170,9 @@ export default tseslint.config(
   {
     files: ['packages/jest-openapi/__test__/**/*.ts'],
     extends: [jestPlugin.configs['flat/all']],
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       'jest/prefer-expect-assertions': 'off',
       'jest/no-disabled-tests': 'warn',
@@ -175,6 +200,9 @@ export default tseslint.config(
     extends: [mochaPlugin.configs.recommended],
     plugins: {
       'chai-friendly': chaiFriendlyPlugin,
+    },
+    languageOptions: {
+      parser: tseslint.parser,
     },
     rules: {
       '@typescript-eslint/no-unused-expressions': 'off',

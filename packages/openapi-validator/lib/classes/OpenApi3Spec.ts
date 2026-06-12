@@ -32,7 +32,6 @@ export default class OpenApi3Spec extends AbstractOpenApiSpec {
   }
 
   servers(): OpenAPIV3.ServerObject[] {
-     
     return this.spec.servers!;
   }
 
@@ -75,7 +74,6 @@ export default class OpenApi3Spec extends AbstractOpenApiSpec {
   findResponseDefinition(
     referenceString: string,
   ): ResponseObjectWithSchema | undefined {
-     
     const nameOfResponseDefinition = referenceString.split(
       '#/components/responses/',
     )[1]!;

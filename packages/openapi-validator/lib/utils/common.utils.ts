@@ -10,7 +10,6 @@ export const stringify = (obj: unknown): string =>
  * Excludes the query because path = pathname + query
  */
 export const getPathname = (request: ActualRequest): string =>
-   
   url.parse(request.path).pathname!;
 
 /**
