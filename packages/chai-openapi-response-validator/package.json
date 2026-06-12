@@ -65,7 +65,7 @@
   ],
   "devDependencies": {
     "@ehuelsmann/common-test-resources": "^0.17.3",
-    "@types/chai": "^4.2.15",
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/supertest": "^7.2.0",
     "axios": "^1.16.1",
