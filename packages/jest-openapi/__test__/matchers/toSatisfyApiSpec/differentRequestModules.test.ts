@@ -10,7 +10,7 @@ import jestOpenAPI from '../../..';
 
 const appOrigin = `http://127.0.0.1:${port}`;
 const pathToApiSpec = resolveCommonTestResource(
-  'exampleOpenApiFiles/valid/openapi3.yml',
+  'exampleOpenApiFiles/valid/openapi3_1.json',
 );
 
 describe('Parsing responses from different request modules', () => {

@@ -1,7 +1,9 @@
-import type { OpenAPIV3 } from 'openapi-types';
+import type { OpenAPIV3_1 } from 'openapi-types';
 import type {
   OpenApiComponentDefinitionsProperty,
+  OpenApiPathRecord,
   ResponseObjectWithSchema,
+  Schema,
 } from './AbstractOpenApiSpec';
 import {
   defaultBasePath,
@@ -15,26 +17,22 @@ import {
 import AbstractOpenApiSpec from './AbstractOpenApiSpec';
 import ValidationError, { ErrorCode } from './errors/ValidationError';
 
-export default class OpenApi3Spec extends AbstractOpenApiSpec {
+export default class OpenApi31Spec extends AbstractOpenApiSpec {
   public didUserDefineServers: boolean;
 
-  constructor(protected override spec: OpenAPIV3.Document) {
+  constructor(protected override spec: OpenAPIV3_1.Document) {
     super(spec);
     this.didUserDefineServers = !serversPropertyNotProvidedOrIsEmptyArray(spec);
     this.ensureDefaultServer();
   }
 
-  /**
-   * "If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of '/'"
-   * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#fixed-fields
-   */
   ensureDefaultServer(): void {
     if (serversPropertyNotProvidedOrIsEmptyArray(this.spec)) {
       this.spec.servers = [{ url: defaultBasePath }];
     }
   }
 
-  servers(): OpenAPIV3.ServerObject[] {
+  servers(): OpenAPIV3_1.ServerObject[] {
     return this.spec.servers!;
   }
 
@@ -54,6 +52,13 @@ export default class OpenApi3Spec extends AbstractOpenApiSpec {
       this.servers(),
       pathname,
     ).map(({ matchingBasePath }) => matchingBasePath);
+  }
+
+  override pathsObject(): OpenApiPathRecord {
+    return {
+      ...(this.spec.paths as OpenApiPathRecord | undefined),
+      ...(this.spec.webhooks as OpenApiPathRecord | undefined),
+    };
   }
 
   findOpenApiPathMatchingPathname(pathname: string): string {
@@ -89,7 +94,7 @@ export default class OpenApi3Spec extends AbstractOpenApiSpec {
     return { components: this.spec.components };
   }
 
-  getSchemaObjects(): OpenAPIV3.ComponentsObject['schemas'] {
-    return this.spec.components?.schemas;
+  getSchemaObjects(): Record<string, Schema> | undefined {
+    return this.spec.components?.schemas as Record<string, Schema> | undefined;
   }
 }

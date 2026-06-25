@@ -1,6 +1,8 @@
 import type { OpenAPI } from 'openapi-types';
+import type { OpenAPIV3_1 } from 'openapi-types';
 import type OpenApi2Spec from './classes/OpenApi2Spec';
 import type OpenApi3Spec from './classes/OpenApi3Spec';
+import type OpenApi31Spec from './classes/OpenApi31Spec';
 
 export type { Schema } from './classes/AbstractOpenApiSpec';
 export type {
@@ -12,8 +14,9 @@ export type { default as ValidationError } from './classes/errors/ValidationErro
 export { ErrorCode } from './classes/errors/ValidationError';
 export type { default as OpenApi2Spec } from './classes/OpenApi2Spec';
 export type { default as OpenApi3Spec } from './classes/OpenApi3Spec';
+export type { default as OpenApi31Spec } from './classes/OpenApi31Spec';
 export { default as makeApiSpec } from './openApiSpecFactory';
 export { default as makeResponse } from './responseFactory';
 
-export type OpenApiSpec = OpenApi2Spec | OpenApi3Spec;
-export type OpenAPISpecObject = OpenAPI.Document;
+export type OpenApiSpec = OpenApi2Spec | OpenApi3Spec | OpenApi31Spec;
+export type OpenAPISpecObject = OpenAPI.Document | OpenAPIV3_1.Document;

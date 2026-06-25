@@ -8,7 +8,7 @@ const openApiSpecsDir = resolveCommonTestResource(
 );
 
 describe('expect(res).toSatisfyApiSpec() (using an OpenAPI spec with similar templated and non-templated OpenAPI paths)', () => {
-  [2, 3].forEach((openApiVersion) => {
+  [2, 3, '3.1'].forEach((openApiVersion) => {
     describe(`OpenAPI ${openApiVersion}`, () => {
       const openApiSpecs = [
         {

@@ -19,6 +19,13 @@ const openApiSpecs = [
     openApiVersion: 3,
     pathToApiSpec: path.join(openApiSpecsDir, 'openapi3WithNoComponents.yml'),
   },
+  {
+    openApiVersion: '3.1',
+    pathToApiSpec: path.join(
+      openApiSpecsDir,
+      'openapi3_1WithNoComponents.json',
+    ),
+  },
 ];
 
 openApiSpecs.forEach((spec) => {

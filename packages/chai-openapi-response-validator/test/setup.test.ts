@@ -40,7 +40,7 @@ describe('chaiResponseValidator(filepathOrObject)', () => {
   describe('object representing a valid OpenAPI spec', () => {
     it('returns a function', () => {
       const pathToApiSpec = resolveCommonTestResource(
-        'exampleOpenApiFiles/valid/openapi3.json',
+        'exampleOpenApiFiles/valid/openapi3_1.json',
       );
       const apiSpec = fs.readJSONSync(pathToApiSpec);
       expect(chaiResponseValidator(apiSpec)).to.be.a('function');
@@ -141,7 +141,7 @@ describe('chaiResponseValidator(filepathOrObject)', () => {
     describe('JSON', () => {
       it('returns a function', () => {
         const pathToApiSpec = resolveCommonTestResource(
-          'exampleOpenApiFiles/valid/openapi3.json',
+          'exampleOpenApiFiles/valid/openapi3_1.json',
         );
         expect(chaiResponseValidator(pathToApiSpec)).to.be.a('function');
       });

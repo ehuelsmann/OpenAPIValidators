@@ -1,0 +1,27 @@
+openapi: 3.1.0
+info:
+  title: Test OpenApi 3 spec
+  description: >-
+    Test that our plugins prefer to match responses to non-templated paths over
+    templated paths
+  version: 0.1.0
+paths:
+  /preferNonTemplatedPathOverTemplatedPath/{templatedPath}:
+    get:
+      responses:
+        '200':
+          description: Response body should be a number
+          content:
+            application/json:
+              schema:
+                type: number
+  /preferNonTemplatedPathOverTemplatedPath/nonTemplatedPath:
+    get:
+      responses:
+        '200':
+          description: Response body should be a string
+          content:
+            application/json:
+              schema:
+                type: string
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema

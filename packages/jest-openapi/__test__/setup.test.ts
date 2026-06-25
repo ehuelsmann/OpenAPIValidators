@@ -38,7 +38,7 @@ describe('jestOpenAPI(filepathOrObject)', () => {
   describe('object representing a valid OpenAPI spec', () => {
     it("successfully extends jest's `expect`", () => {
       const pathToApiSpec = resolveCommonTestResource(
-        'exampleOpenApiFiles/valid/openapi3.json',
+        'exampleOpenApiFiles/valid/openapi3_1.json',
       );
       const apiSpec = fs.readJSONSync(pathToApiSpec);
       expect(() => jestOpenAPI(apiSpec)).not.toThrow();
@@ -139,7 +139,7 @@ describe('jestOpenAPI(filepathOrObject)', () => {
   describe('absolute path to a valid OpenAPI JSON file', () => {
     it("successfully extends jest's `expect`", () => {
       const pathToApiSpec = resolveCommonTestResource(
-        'exampleOpenApiFiles/valid/openapi3.json',
+        'exampleOpenApiFiles/valid/openapi3_1.json',
       );
       expect(() => jestOpenAPI(pathToApiSpec)).not.toThrow();
     });

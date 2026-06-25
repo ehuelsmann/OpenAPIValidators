@@ -1,11 +1,15 @@
+import { openapiV31 } from '@apidevtools/openapi-schemas';
+import Ajv2020 from 'ajv/dist/2020';
+import addFormats from 'ajv-formats';
 import fs from 'fs-extra';
 import yaml from 'js-yaml';
 import OpenAPISchemaValidatorModule from 'openapi-schema-validator';
-import type { OpenAPI, OpenAPIV2, OpenAPIV3 } from 'openapi-types';
+import type { OpenAPI, OpenAPIV2, OpenAPIV3, OpenAPIV3_1 } from 'openapi-types';
 import path from 'path';
 import typeOf from 'typeof';
 import OpenApi2Spec from './classes/OpenApi2Spec';
 import OpenApi3Spec from './classes/OpenApi3Spec';
+import OpenApi31Spec from './classes/OpenApi31Spec';
 import { stringify } from './utils/common.utils';
 
 // openapi-schema-validator is a CommonJS module that sets `exports.__esModule = true`
@@ -22,17 +26,22 @@ const OpenAPISchemaValidator =
 
 type AnyObject = Record<string, unknown>;
 
+const openApi31SpecValidator = createOpenApi31SpecValidator();
+
 const isObject = (arg: unknown): arg is AnyObject =>
   typeof arg === 'object' && arg !== null && !Array.isArray(arg);
 
 export default function makeApiSpec(
-  filepathOrObject: string | OpenAPI.Document,
-): OpenApi2Spec | OpenApi3Spec {
+  filepathOrObject: string | OpenAPI.Document | OpenAPIV3_1.Document,
+): OpenApi2Spec | OpenApi3Spec | OpenApi31Spec {
   const spec = loadSpec(filepathOrObject);
   validateSpec(spec);
-  const validSpec = spec as OpenAPI.Document;
+  const validSpec = spec as OpenAPI.Document | OpenAPIV3_1.Document;
   if ('swagger' in validSpec) {
     return new OpenApi2Spec(validSpec);
+  }
+  if (validSpec.openapi.startsWith('3.1.')) {
+    return new OpenApi31Spec(validSpec as OpenAPIV3_1.Document);
   }
   return new OpenApi3Spec(validSpec as OpenAPIV3.Document);
 }
@@ -70,8 +79,13 @@ function loadFile(filepath: string): AnyObject {
   }
 }
 
-function validateSpec(obj: AnyObject): OpenAPI.Document {
+function validateSpec(obj: AnyObject): OpenAPI.Document | OpenAPIV3_1.Document {
   try {
+    if ((obj as OpenAPIV3_1.Document).openapi?.startsWith('3.1.')) {
+      validateOpenApi31Spec(obj);
+      return obj as OpenAPIV3_1.Document;
+    }
+
     const validator = new OpenAPISchemaValidator({
       version:
         (obj as unknown as OpenAPIV2.Document).swagger || // '2.0'
@@ -86,5 +100,17 @@ function validateSpec(obj: AnyObject): OpenAPI.Document {
     throw new Error(`Invalid OpenAPI spec: ${(error as Error).message}`, {
       cause: error,
     });
+  }
+}
+
+function createOpenApi31SpecValidator() {
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
+  addFormats(ajv);
+  return ajv.compile(openapiV31);
+}
+
+function validateOpenApi31Spec(obj: AnyObject): void {
+  if (!openApi31SpecValidator(obj)) {
+    throw new Error(stringify(openApi31SpecValidator.errors));
   }
 }

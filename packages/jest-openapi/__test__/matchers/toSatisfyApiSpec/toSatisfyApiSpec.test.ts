@@ -44,6 +44,10 @@ const openApiSpecs = [
     openApiVersion: 3,
     pathToApiSpec: path.join(openApiSpecsDir, 'openapi3.yml'),
   },
+  {
+    openApiVersion: '3.1',
+    pathToApiSpec: path.join(openApiSpecsDir, 'openapi3_1.json'),
+  },
 ];
 
 openApiSpecs.forEach((spec) => {
@@ -591,6 +595,40 @@ openApiSpecs.forEach((spec) => {
     });
 
     describe("when 'res' matches NO responses defined in the API spec", () => {
+      if (openApiVersion === '3.1') {
+        describe('res matches a webhook path', () => {
+          const res = {
+            status: 202,
+            req: {
+              method: 'POST',
+              path: '/local/webhooks/customer-created',
+            },
+            body: {
+              id: 'customer-123',
+            },
+          };
+
+          it('passes', () => {
+            expect(res).toSatisfyApiSpec();
+          });
+        });
+
+        describe('res matches a numeric exclusiveMinimum response schema', () => {
+          const res = {
+            status: 200,
+            req: {
+              method: 'GET',
+              path: '/local/responseBody/number/exclusiveMinimum',
+            },
+            body: 6,
+          };
+
+          it('passes', () => {
+            expect(res).toSatisfyApiSpec();
+          });
+        });
+      }
+
       describe('res matches no paths', () => {
         const res = {
           status: 204,

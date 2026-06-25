@@ -10,7 +10,7 @@ const openApiSpecsDir = resolveCommonTestResource(
 const { expect } = chai;
 
 describe('expect(res).to.satisfyApiSpec (using an OpenAPI spec with similar templated and non-templated OpenAPI paths)', () => {
-  [2, 3].forEach((openApiVersion) => {
+  [2, 3, '3.1'].forEach((openApiVersion) => {
     describe(`OpenAPI ${openApiVersion}`, () => {
       const openApiSpecs = [
         {

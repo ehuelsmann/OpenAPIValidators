@@ -11,7 +11,7 @@ import chaiResponseValidator from '../../..';
 
 const appOrigin = `http://localhost:${port}`;
 const pathToApiSpec = resolveCommonTestResource(
-  'exampleOpenApiFiles/valid/openapi3.yml',
+  'exampleOpenApiFiles/valid/openapi3_1.json',
 );
 const { expect, AssertionError } = chai;
 const loadChaiHttpModule = () => import('chai-http');

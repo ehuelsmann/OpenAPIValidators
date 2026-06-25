@@ -6,6 +6,30 @@ import type { ActualRequest } from '../classes/AbstractResponse';
 export const stringify = (obj: unknown): string =>
   inspect(obj, { depth: null });
 
+export const removeSchemaDialectDeclarations = <T>(value: T): T => {
+  if (Array.isArray(value)) {
+    return value.map((item) => removeSchemaDialectDeclarations(item)) as T;
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.entries(value).reduce(
+      (sanitizedValue, [key, nestedValue]) => {
+        if (key === '$schema') {
+          return sanitizedValue;
+        }
+
+        return {
+          ...sanitizedValue,
+          [key]: removeSchemaDialectDeclarations(nestedValue),
+        };
+      },
+      {} as Record<string, unknown>,
+    ) as T;
+  }
+
+  return value;
+};
+
 /**
  * Excludes the query because path = pathname + query
  */

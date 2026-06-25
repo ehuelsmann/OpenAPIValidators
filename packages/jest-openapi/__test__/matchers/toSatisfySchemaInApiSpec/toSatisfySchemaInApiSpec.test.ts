@@ -49,6 +49,10 @@ const openApiSpecs = [
     openApiVersion: 3,
     pathToApiSpec: path.join(openApiSpecsDir, 'openapi3.yml'),
   },
+  {
+    openApiVersion: '3.1',
+    pathToApiSpec: path.join(openApiSpecsDir, 'openapi3_1.json'),
+  },
 ];
 
 openApiSpecs.forEach((spec) => {
@@ -408,5 +412,17 @@ openApiSpecs.forEach((spec) => {
         );
       });
     });
+
+    if (openApiVersion === '3.1') {
+      describe('OpenAPI 3.1-specific JSON Schema support', () => {
+        it('accepts schemas using type arrays', () => {
+          expect(null).toSatisfySchemaInApiSpec('NullableStringSchema');
+        });
+
+        it('accepts schemas using numeric exclusiveMinimum', () => {
+          expect(6).toSatisfySchemaInApiSpec('ExclusiveMinimumNumberSchema');
+        });
+      });
+    }
   });
 });

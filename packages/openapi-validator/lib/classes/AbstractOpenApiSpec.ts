@@ -2,17 +2,26 @@ import OpenAPIResponseValidatorModule, {
   type OpenAPIResponseValidatorArgs,
 } from 'openapi-response-validator';
 import type { OpenAPIV2, OpenAPIV3, OpenAPIV3_1 } from 'openapi-types';
-import { getPathname } from '../utils/common.utils';
+import {
+  getPathname,
+  removeSchemaDialectDeclarations,
+} from '../utils/common.utils';
 import type { ActualRequest, ActualResponse } from './AbstractResponse';
 import ValidationError, { ErrorCode } from './errors/ValidationError';
 
-type Document = OpenAPIV2.Document | OpenAPIV3.Document;
+type Document = OpenAPIV2.Document | OpenAPIV3.Document | OpenAPIV3_1.Document;
 
-type Operation = OpenAPIV2.OperationObject | OpenAPIV3.OperationObject;
+type Operation =
+  | OpenAPIV2.OperationObject
+  | OpenAPIV3.OperationObject
+  | OpenAPIV3_1.OperationObject;
 
 type HttpMethods = OpenAPIV2.HttpMethods;
 
-type PathItemObject = OpenAPIV2.PathItemObject | OpenAPIV3.PathItemObject;
+type PathItemObject =
+  | OpenAPIV2.PathItemObject
+  | OpenAPIV3.PathItemObject
+  | OpenAPIV3_1.PathItemObject;
 
 const OpenAPIResponseValidator =
   (
@@ -38,7 +47,22 @@ export type ResponseObjectWithSchema =
       };
     });
 
-export type Schema = OpenAPIV2.Schema | OpenAPIV3.SchemaObject;
+export type Schema =
+  | OpenAPIV2.Schema
+  | OpenAPIV3.SchemaObject
+  | OpenAPIV3_1.SchemaObject;
+export type OpenApiComponentDefinitionsProperty =
+  | {
+      definitions: OpenAPIV2.Document['definitions'];
+    }
+  | {
+      components: OpenAPIV3.Document['components'];
+    }
+  | {
+      components: OpenAPIV3_1.Document['components'];
+    };
+
+export type OpenApiPathRecord = Record<string, PathItemObject | undefined>;
 
 export default abstract class OpenApiSpec {
   protected abstract getSchemaObjects(): Record<string, Schema> | undefined;
@@ -50,17 +74,12 @@ export default abstract class OpenApiSpec {
   protected abstract findOpenApiPathMatchingPathname(pathname: string): string;
 
   protected abstract getComponentDefinitionsProperty():
-    | {
-        definitions: OpenAPIV2.Document['definitions'];
-      }
-    | {
-        components: OpenAPIV3.Document['components'];
-      };
+    OpenApiComponentDefinitionsProperty;
 
   constructor(protected spec: Document) {}
 
-  pathsObject(): Document['paths'] {
-    return this.spec.paths;
+  pathsObject(): OpenApiPathRecord {
+    return (this.spec.paths ?? {}) as OpenApiPathRecord;
   }
 
   getPathItem(openApiPath: string): PathItemObject {
@@ -144,8 +163,10 @@ export default abstract class OpenApiSpec {
       throw error;
     }
     const validator = new OpenAPIResponseValidator({
-      responses: expectedResponse as OpenAPIResponseValidatorArgs['responses'],
-      ...this.getComponentDefinitionsProperty(),
+      responses: removeSchemaDialectDeclarations(
+        expectedResponse,
+      ) as OpenAPIResponseValidatorArgs['responses'],
+      ...removeSchemaDialectDeclarations(this.getComponentDefinitionsProperty()),
     } as OpenAPIResponseValidatorArgs);
 
     const expectedResStatus = Object.keys(expectedResponse)[0]!;
@@ -179,11 +200,15 @@ export default abstract class OpenApiSpec {
     schema: Schema,
   ): ValidationError | null {
     const mockResStatus = '200';
-    const mockExpectedResponse = { [mockResStatus]: { schema } };
+    const mockExpectedResponse = {
+      [mockResStatus]: {
+        schema: removeSchemaDialectDeclarations(schema),
+      },
+    };
     const validator = new OpenAPIResponseValidator({
       responses:
         mockExpectedResponse as OpenAPIResponseValidatorArgs['responses'],
-      ...this.getComponentDefinitionsProperty(),
+      ...removeSchemaDialectDeclarations(this.getComponentDefinitionsProperty()),
 
       errorTransformer: ({
         path,
