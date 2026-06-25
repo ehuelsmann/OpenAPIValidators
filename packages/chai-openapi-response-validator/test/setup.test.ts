@@ -83,7 +83,7 @@ describe('chaiResponseValidator(filepathOrObject)', () => {
         );
         const func = () => chaiResponseValidator(pathToApiSpec);
         expect(func).to.throw(
-          "Invalid OpenAPI spec: Cannot read properties of undefined (reading 'swagger')",
+          `${invalidArgErrorMessage}Invalid YAML or JSON:\nexpected a document, but the input is empty`,
         );
       });
     });

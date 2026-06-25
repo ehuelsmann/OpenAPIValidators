@@ -81,7 +81,7 @@ describe('jestOpenAPI(filepathOrObject)', () => {
         );
         const func = () => jestOpenAPI(pathToApiSpec);
         expect(func).toThrow(
-          "Invalid OpenAPI spec: Cannot read properties of undefined (reading 'swagger')",
+          `${invalidArgErrorMessage}Invalid YAML or JSON:\nexpected a document, but the input is empty`,
         );
       });
     });
