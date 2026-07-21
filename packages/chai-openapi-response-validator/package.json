@@ -68,7 +68,7 @@
     "@ehuelsmann/common-test-resources": "^0.18.0",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/supertest": "^7.2.0",
+    "@types/supertest": "^7.2.1",
     "axios": "^1.18.1",
     "chai": "^6.2.2",
     "chai-http": "^5.1.2",
