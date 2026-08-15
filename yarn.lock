@@ -461,7 +461,7 @@ __metadata:
     axios: "npm:^1.18.1"
     chai: "npm:^6.2.2"
     chai-http: "npm:^5.1.2"
-    eslint: "npm:^10.8.0"
+    eslint: "npm:^10.8.1"
     eslint-plugin-chai-friendly: "npm:^1.2.1"
     eslint-plugin-import: "npm:^2.22.1"
     eslint-plugin-mocha: "npm:^11.3.0"
@@ -491,7 +491,7 @@ __metadata:
     "@types/jest": "npm:^30.0.0"
     "@types/supertest": "npm:^7.2.1"
     axios: "npm:^1.18.1"
-    eslint: "npm:^10.8.0"
+    eslint: "npm:^10.8.1"
     eslint-plugin-jest: "npm:^29.16.0"
     express: "npm:^5.2.1"
     fs-extra: "npm:^11.4.0"
@@ -4162,9 +4162,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^10.8.0":
-  version: 10.8.0
-  resolution: "eslint@npm:10.8.0"
+"eslint@npm:^10.8.1":
+  version: 10.8.1
+  resolution: "eslint@npm:10.8.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.8.0"
     "@eslint-community/regexpp": "npm:^4.12.2"
@@ -4203,7 +4203,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10c0/2dbc523578834088615f388e08418d2620b25655f7a398f6d415765fa2a3a25d6b8b43bd3293d40f977e12752323a841d52654a2648697a00c0102c9794bb3dc
+  checksum: 10c0/0c4720a43ef2052829db18e37aa79adb5f0a62137bdf4a4f8e9507bbbbf888ba0669fc03e4b7139d8f27b59b051bbbcd0a3988b068c30fa934a766d60a81f599
   languageName: node
   linkType: hard
 
@@ -6960,7 +6960,7 @@ __metadata:
     "@types/express": "npm:^5.0.6"
     "@typescript-eslint/eslint-plugin": "npm:^8.65.0"
     "@typescript-eslint/parser": "npm:^8.65.0"
-    eslint: "npm:^10.8.0"
+    eslint: "npm:^10.8.1"
     eslint-config-airbnb-base: "npm:^15.0.0"
     eslint-config-airbnb-typescript: "npm:^18.0.0"
     eslint-config-prettier: "npm:^10.0.0"
