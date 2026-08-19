@@ -1,6 +1,6 @@
 {
   "name": "@ehuelsmann/common-test-resources",
-  "version": "0.18.0",
+  "version": "v0.18.1",
   "private": true,
   "type": "commonjs",
   "main": "./dist/index.js",
