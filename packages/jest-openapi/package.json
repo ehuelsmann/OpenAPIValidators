@@ -1,6 +1,6 @@
 {
   "name": "@ehuelsmann/jest-openapi",
-  "version": "0.18.1",
+  "version": "0.18.2",
   "description": "Jest matchers for asserting that HTTP responses satisfy an OpenAPI spec",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -60,7 +60,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@ehuelsmann/common-test-resources": "^0.18.1",
+    "@ehuelsmann/common-test-resources": "^0.18.2",
     "@types/jest": "^30.0.0",
     "@types/supertest": "^7.2.1",
     "axios": "^1.18.1",
@@ -75,7 +75,7 @@
     "tsup": "^8.5.1"
   },
   "dependencies": {
-    "@ehuelsmann/openapi-validator": "^0.18.1",
+    "@ehuelsmann/openapi-validator": "^0.18.2",
     "jest-matcher-utils": "^30.4.1"
   }
 }
