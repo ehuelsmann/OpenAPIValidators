@@ -453,8 +453,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/chai-openapi-response-validator@workspace:packages/chai-openapi-response-validator"
   dependencies:
-    "@ehuelsmann/common-test-resources": "npm:^v0.18.1"
-    "@ehuelsmann/openapi-validator": "npm:^v0.18.1"
+    "@ehuelsmann/common-test-resources": "npm:^0.18.1"
+    "@ehuelsmann/openapi-validator": "npm:^0.18.1"
     "@types/chai": "npm:^5.2.3"
     "@types/mocha": "npm:^10.0.10"
     "@types/supertest": "npm:^7.2.1"
@@ -476,7 +476,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ehuelsmann/common-test-resources@npm:^v0.18.1, @ehuelsmann/common-test-resources@workspace:packages/common-test-resources":
+"@ehuelsmann/common-test-resources@npm:^0.18.1, @ehuelsmann/common-test-resources@workspace:packages/common-test-resources":
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/common-test-resources@workspace:packages/common-test-resources"
   languageName: unknown
@@ -486,8 +486,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/jest-openapi@workspace:packages/jest-openapi"
   dependencies:
-    "@ehuelsmann/common-test-resources": "npm:^v0.18.1"
-    "@ehuelsmann/openapi-validator": "npm:^v0.18.1"
+    "@ehuelsmann/common-test-resources": "npm:^0.18.1"
+    "@ehuelsmann/openapi-validator": "npm:^0.18.1"
     "@types/jest": "npm:^30.0.0"
     "@types/supertest": "npm:^7.2.1"
     axios: "npm:^1.18.1"
@@ -504,7 +504,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ehuelsmann/openapi-validator@npm:^v0.18.1, @ehuelsmann/openapi-validator@workspace:packages/openapi-validator":
+"@ehuelsmann/openapi-validator@npm:^0.18.1, @ehuelsmann/openapi-validator@workspace:packages/openapi-validator":
   version: 0.0.0-use.local
   resolution: "@ehuelsmann/openapi-validator@workspace:packages/openapi-validator"
   dependencies:
