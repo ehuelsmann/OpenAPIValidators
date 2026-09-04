@@ -279,6 +279,7 @@ openApiSpecs.forEach((spec) => {
       });
 
       if (openApiVersion === 3) {
+        // eslint-disable-next-line mocha/no-conditional-tests -- These schemas exist only in OpenAPI 3.
         describe('satisfy anyOf 2 schemas', () => {
           const schemaName = 'SchemaUsingAnyOf';
 
@@ -317,6 +318,7 @@ openApiSpecs.forEach((spec) => {
           });
         });
 
+        // eslint-disable-next-line mocha/no-conditional-tests -- These schemas exist only in OpenAPI 3.
         describe('satisfy oneOf 2 schemas', () => {
           const schemaName = 'SchemaUsingOneOf';
 
