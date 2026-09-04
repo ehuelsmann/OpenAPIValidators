@@ -23,8 +23,8 @@
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "yarn lint --fix",
     "build": "tsup && tsc -p tsconfig.json",
-    "test": "echo",
-    "test:ci": "echo",
+    "test": "yarn build && node --test test/**/*.node-test.mjs",
+    "test:ci": "yarn test",
     "prepack": "yarn build"
   },
   "repository": {

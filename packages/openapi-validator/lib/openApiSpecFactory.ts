@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 import OpenAPISchemaValidatorModule from 'openapi-schema-validator';
 import type { OpenAPI, OpenAPIV2, OpenAPIV3 } from 'openapi-types';
 import path from 'path';
@@ -62,7 +62,7 @@ function loadFile(filepath: string): AnyObject {
   }
   const fileData = fs.readFileSync(filepath, { encoding: 'utf8' });
   try {
-    return yaml.load(fileData) as AnyObject;
+    return load(fileData) as AnyObject;
   } catch (error) {
     throw new Error(`Invalid YAML or JSON:\n${(error as Error).message}`, {
       cause: error,
