@@ -28,6 +28,13 @@ These test plugins let you automatically test whether your server's behaviour an
 [![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fchai-openapi-response-validator)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 [![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fchai-openapi-response-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/chai-openapi-response-validator)
 
+### [OpenAPI Validator](https://github.com/ehuelsmann/OpenAPIValidators/tree/master/packages/openapi-validator#readme)
+
+Common code shared by jest-openapi and Chai OpenAPI Response Validator (`makeApiSpec`, `makeResponse`); framework-agnostic, usable to build validators for other test frameworks.
+
+[![downloads](https://img.shields.io/npm/dm/@ehuelsmann%2Fopenapi-validator)](https://www.npmjs.com/package/@ehuelsmann/openapi-validator)
+[![npm](https://img.shields.io/npm/v/@ehuelsmann%2Fopenapi-validator.svg)](https://www.npmjs.com/package/@ehuelsmann/openapi-validator)
+
 ## Installing (scoped packages)
 
 These packages are published to the **public npm registry** under the scope `@ehuelsmann`:
@@ -44,6 +51,8 @@ No authentication or token is required to install.
 npm install --save-dev @ehuelsmann/jest-openapi
 # or
 npm install --save-dev @ehuelsmann/chai-openapi-response-validator
+# or
+npm install --save-dev @ehuelsmann/openapi-validator
 ```
 
 ### Yarn
@@ -52,24 +61,29 @@ npm install --save-dev @ehuelsmann/chai-openapi-response-validator
 yarn add --dev @ehuelsmann/jest-openapi
 # or
 yarn add --dev @ehuelsmann/chai-openapi-response-validator
+# or
+yarn add --dev @ehuelsmann/openapi-validator
 ```
 
 > **Note:** These are published as scoped packages, so import using the scoped name — for example:
 >
 > - `import jestOpenAPI from '@ehuelsmann/jest-openapi'`
 > - `import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator'`
+> - `import { makeApiSpec, makeResponse } from '@ehuelsmann/openapi-validator'`
 
-Both packages ship as **ESM-first** (preferred) with a **CommonJS** fallback, supporting:
+All packages ship as **ESM-first** (preferred) with a **CommonJS** fallback, supporting:
 
 ```js
 // ESM / TypeScript
 import jestOpenAPI from '@ehuelsmann/jest-openapi';
 import chaiOpenAPI from '@ehuelsmann/chai-openapi-response-validator';
+import { makeApiSpec, makeResponse } from '@ehuelsmann/openapi-validator';
 
 // CommonJS
 const jestOpenAPI = require('@ehuelsmann/jest-openapi').default;
 const chaiOpenAPI =
   require('@ehuelsmann/chai-openapi-response-validator').default;
+const { makeApiSpec, makeResponse } = require('@ehuelsmann/openapi-validator');
 ```
 
 ## Contributors ✨
