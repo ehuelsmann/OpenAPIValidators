@@ -9,13 +9,58 @@ on:
       - '*.md'
       - '.all-contributorsrc'
   pull_request:
-    paths-ignore:
-      - '*.md'
-      - '.all-contributorsrc'
   workflow_dispatch:
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      code_changed: ${{ steps.filter.outputs.code_changed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - id: filter
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "code_changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base_sha="${{ github.event.before }}"
+          head_sha="${{ github.sha }}"
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base_sha="${{ github.event.pull_request.base.sha }}"
+            head_sha="${{ github.event.pull_request.head.sha }}"
+          fi
+
+          if [[ -z "$base_sha" || "$base_sha" == "0000000000000000000000000000000000000000" ]]; then
+            echo "code_changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          code_changed=false
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+
+            case "$file" in
+              *.md|.all-contributorsrc)
+                ;;
+              *)
+                code_changed=true
+                break
+                ;;
+            esac
+          done < <(git diff --name-only "$base_sha" "$head_sha")
+
+          echo "code_changed=$code_changed" >> "$GITHUB_OUTPUT"
+
   Test:
+    needs: changes
+    if: needs.changes.outputs.code_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -37,3 +82,27 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
         if: success()
+
+  Done:
+    needs:
+      - changes
+      - Test
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require Test or changes to complete successfully
+        shell: bash
+        run: |
+          test_result="${{ needs.Test.result }}"
+          changes_result="${{ needs.changes.result }}"
+
+          if [[ "$test_result" == "success" ]]; then
+            exit 0
+          fi
+
+          if [[ "$test_result" == "skipped" && ( "$changes_result" == "success" || "$changes_result" == "skipped" ) ]]; then
+            exit 0
+          fi
+
+          echo "Test job finished with $test_result; changes job finished with $changes_result"
+          exit 1
