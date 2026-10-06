@@ -90,15 +90,19 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: Require Test to succeed or be skipped
+      - name: Require Test or changes to complete successfully
         shell: bash
         run: |
-          if [[ "${{ needs.changes.result }}" != "success" ]]; then
-            echo "changes job finished with ${{ needs.changes.result }}"
-            exit 1
+          test_result="${{ needs.Test.result }}"
+          changes_result="${{ needs.changes.result }}"
+
+          if [[ "$test_result" == "success" ]]; then
+            exit 0
           fi
 
-          if [[ "${{ needs.Test.result }}" != "success" && "${{ needs.Test.result }}" != "skipped" ]]; then
-            echo "Test job finished with ${{ needs.Test.result }}"
-            exit 1
+          if [[ "$test_result" == "skipped" && ( "$changes_result" == "success" || "$changes_result" == "skipped" ) ]]; then
+            exit 0
           fi
+
+          echo "Test job finished with $test_result; changes job finished with $changes_result"
+          exit 1
