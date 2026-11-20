@@ -69,7 +69,7 @@
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/supertest": "^7.2.1",
-    "axios": "^1.21.0",
+    "axios": "^1.21.1",
     "chai": "^6.2.2",
     "chai-http": "^5.2.1",
     "eslint": "^10.14.0",
